@@ -1,7 +1,7 @@
 {
     "manifest_version": 2,
     "name": "HID control prevention",
-    "version": "0.1",
+    "version": "0.2",
 
     "content_scripts": [
         {
