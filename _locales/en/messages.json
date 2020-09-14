@@ -1,0 +1,149 @@
+{
+    "about": {
+        "message": "About"
+    },
+    "accept": {
+        "message": "Accept"
+    },
+    "audioFormats": {
+        "message": "Audio formats"
+    },
+    "backupAndReset": {
+        "message": "Backup & reset"
+    },
+    "browser": {
+        "message": "Browser"
+    },
+    "cancel": {
+        "message": "Cancel"
+    },
+    "cores": {
+        "message": "Cores"
+    },
+    "dateAndTime": {
+        "message": "Date & time"
+    },
+    "device": {
+        "message": "Device"
+    },
+    "disabled": {
+        "message": "Disabled"
+    },
+    "exportSettings": {
+        "message": "Export settings"
+    },
+    "extension": {
+        "message": "Extension"
+    },
+    "flash": {
+        "message": "Flash"
+    },
+    "general": {
+        "message": "General"
+    },
+    "gpu": {
+        "message": "GPU"
+    },
+    "importSettings": {
+        "message": "Import settings"
+    },
+    "invertColors": {
+        "message": "Invert colors"
+    },
+    "language": {
+        "message": "Language"
+    },
+    "languages": {
+        "message": "Languages"
+    },
+    "name": {
+        "message": "Name"
+    },
+    "notAllowedtoAccessThisPage": {
+        "message": "Not allowed to access this page."
+    },
+    "ok": {
+        "message": "OK"
+    },
+    "os": {
+        "message": "OS"
+    },
+    "permissionIsNotGranted": {
+        "message": "Permission is not granted"
+    },
+    "permissions": {
+        "message": "Permissions"
+    },
+    "platform": {
+        "message": "Platform"
+    },
+    "ram": {
+        "message": "RAM"
+    },
+    "remove": {
+        "message": "Remove"
+    },
+    "resetAllSettings": {
+        "message": "Reset all settings"
+    },
+    "resetSettings": {
+        "message": "Reset settings?"
+    },
+    "saveAs": {
+        "message": "Save as..."
+    },
+    "settings": {
+        "message": "Settings"
+    },
+    "successfullyImportedSettings": {
+        "message": "Successfully imported settings"
+    },
+    "sunsetToSunrise": {
+        "message": "Sunset to sunrise"
+    },
+    "systemPeference": {
+        "message": "System preference"
+    },
+    "theListIsEmpty": {
+        "message": "The list is empty"
+    },
+    "thisWillResetAllSettings": {
+        "message": "This will reset all settings"
+    },
+    "type": {
+        "message": "Type"
+    },
+    "use24HourFormat": {
+        "message": "Use 24-hour format"
+    },
+    "version": {
+        "message": "Version"
+    },
+    "videoFormats": {
+        "message": "Video formats"
+    },
+    "websites": {
+        "message": "Websites"
+    },
+    "rateUs": {
+        "message": "Rate us"
+    },
+    "filters": {
+        "message": "Filters"
+    },
+    "global": {
+        "message": "Global"
+    },
+    "current": {
+        "message": "Current"
+    },
+    "addNewFilter": {
+        "message": "Add new filter"
+    },
+    "websites": {
+        "message": "Websites"
+    },
+    "empty": {
+        "message": "Empty"
+    }
+}
