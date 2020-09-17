@@ -9,15 +9,14 @@
 /*---------------------------------------------------------------
 1.0 OBJECT
 ---------------------------------------------------------------*/
-
 var Menu = {
     header: {
         type: 'header',
-        
+
         section_start: {
             type: 'section',
             class: 'satus-section--align-start',
-            
+
             go_back: {
                 type: 'button',
                 class: 'satus-button--back',
@@ -34,14 +33,14 @@ var Menu = {
         section_end: {
             type: 'section',
             class: 'satus-section--align-end',
-            
+
             button_vert: {
                 type: 'button',
                 icon: '<svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.75" viewBox="0 0 24 24"><circle cx="12" cy="5.25" r="0.45"/><circle cx="12" cy="12" r="0.45"/><circle cx="12" cy="18.75" r="0.45"/></svg>',
                 onClickRender: {
                     type: 'dialog',
                     class: 'satus-dialog--vertical-menu',
-                    
+
                     rate_us: {
                         type: 'folder',
                         before: '<svg fill="none" stroke="var(--satus-theme-primary)" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.75" viewBox="0 0 24 24"><path d="M14 9V5a3 3 0 00-3-3l-4 9v11h11.28a2 2 0 002-1.7l1.38-9a2 2 0 00-2-2.3zM7 22H4a2 2 0 01-2-2v-7a2 2 0 012-2h3"/></svg>',
@@ -70,18 +69,18 @@ var Menu = {
                 var self = (this === window ? document.querySelector('.satus-main') : this),
                     item = self.history[self.history.length - 1],
                     id = item.appearanceKey;
-        
+
                 if (!Satus.isset(container)) {
                     container = document.querySelector('.satus-main__container');
                 }
-                
+
                 document.querySelector('.satus-text--title').innerText = Satus.locale.getMessage(this.history[this.history.length - 1].label) || 'HID control prevention';
 
                 document.body.dataset.appearance = id;
                 container.dataset.appearance = id;
             }
         },
-        
+
         tooltip: {
             type: 'section',
             class: 'satus-section--tooltip',
@@ -91,10 +90,10 @@ var Menu = {
                 value: true
             }
         },
-        
+
         section: {
             type: 'section',
-            
+
             filters: {
                 type: 'folder',
                 label: 'filters',
@@ -106,19 +105,19 @@ var Menu = {
                 label: 'websites',
                 before: '<svg fill="none" stroke="var(--satus-theme-primary)" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.75" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15.3 15.3 0 014 10 15.3 15.3 0 01-4 10 15.3 15.3 0 01-4-10 15.3 15.3 0 014-10z"/></svg>',
                 appearanceKey: 'websites',
-                
+
                 section: {
                     type: 'section',
-                    
+
                     onrender: function() {
                         var data = satus.storage.get('websites') || {},
                             list = {};
-                        
+
                         for (var key in data) {
                             list[key] = {
                                 type: 'folder',
                                 label: key,
-                                
+
                                 section: {
                                     type: 'section',
                                     class: 'satus-section--shortcuts',
@@ -127,12 +126,12 @@ var Menu = {
                                         var data = satus.storage.get(this.storage_key) || {},
                                             list = {},
                                             length = 0;
-                                        
+
                                         for (var key in data) {
                                             list[key] = {
                                                 type: 'section',
                                                 class: 'satus-section--row',
-                                                
+
                                                 shortcut: {
                                                     type: 'shortcut',
                                                     storage_key: this.storage_key + key
@@ -144,19 +143,19 @@ var Menu = {
                                                     storage_key: this.storage_key + key,
                                                     onclick: function() {
                                                         satus.storage.set(this.storage_key, undefined);
-                                                        
+
                                                         this.parentNode.style.height = 0;
-                                                        
-                                                        setTimeout(function(){
+
+                                                        setTimeout(function() {
                                                             this.parentNode.remove();
                                                         }, .2);
                                                     }
                                                 }
                                             };
-                                            
+
                                             length++;
                                         }
-                                        
+
                                         if (length > 0) {
                                             satus.render(list, this);
                                         } else {
@@ -173,7 +172,7 @@ var Menu = {
                                 footer: {
                                     type: 'div',
                                     class: 'satus-div--create',
-                                    
+
                                     button: {
                                         type: 'shortcut',
                                         class: 'satus-shortcut--create',
@@ -185,7 +184,7 @@ var Menu = {
                                 }
                             };
                         }
-                        
+
                         if (Object.keys(list).length > 0) {
                             satus.render(list, this);
                         } else {
@@ -503,7 +502,7 @@ var Menu = {
                 }
             }
         },
-        
+
         made_with_love: {
             type: 'text',
             class: 'made-with-love',
@@ -522,10 +521,10 @@ var Menu = {
 
 function init(response) {
     HOSTNAME = response || '';
-    
+
     satus.storage.import(function() {
         var language = satus.storage.get('language') || 'en';
-        
+
         satus.locale.import('../_locales/' + language + '/messages.json', function() {
             satus.modules.updateStorageKeys(Menu, function() {
                 if (HOSTNAME === '') {
@@ -538,70 +537,118 @@ function init(response) {
                     Menu.main.tooltip.enable.label = HOSTNAME;
                     Menu.main.tooltip.enable.storage_key = 'websites/' + HOSTNAME + '/enabled';
                 }
-                
+
                 if (HOSTNAME !== '') {
                     Menu.main.section.filters.tabs = {
                         type: 'tabs',
-                        
+
                         global: {
                             type: 'tab',
                             label: 'global',
-                            
+
+                            section_00: {
+                                type: 'section',
+
+                                clipboard: {
+                                    type: 'folder',
+                                    label: 'clipboard',
+
+                                    section: {
+                                        type: 'section',
+
+                                        cut: {
+                                            type: 'switch',
+                                            label: 'cut',
+                                            value: true,
+                                            storage_key: 'global/cut'
+                                        },
+                                        copy: {
+                                            type: 'switch',
+                                            label: 'copy',
+                                            value: true,
+                                            storage_key: 'global/copy'
+                                        },
+                                        paste: {
+                                            type: 'switch',
+                                            label: 'paste',
+                                            value: true,
+                                            storage_key: 'global/paste'
+                                        }
+                                    }
+                                },
+                                select: {
+                                    type: 'switch',
+                                    label: 'select',
+                                    value: true,
+                                    storage_key: 'global/select'
+                                },
+                                drag_and_drop: {
+                                    type: 'switch',
+                                    label: 'dragAndDrop',
+                                    value: true,
+                                    storage_key: 'global/drag_and_drop'
+                                }
+                            },
+
                             section: {
                                 type: 'section',
                                 class: 'satus-section--shortcuts global',
                                 onrender: function() {
                                     var data = satus.storage.get('global') || {},
-                                        list = {},
-                                        length = 0;
-                                    
-                                    for (var key in data) {
-                                        list[key] = {
-                                            type: 'section',
-                                            class: 'satus-section--row',
-                                            
-                                            shortcut: {
+                                        list = {
+                                            search: {
                                                 type: 'shortcut',
-                                                storage_key: 'global/' + key
-                                            },
-                                            remove: {
-                                                type: 'button',
-                                                class: 'satus-button--remove',
-                                                before: '<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>',
-                                                storage_key: 'global/' + key,
-                                                onclick: function() {
-                                                    satus.storage.set(this.storage_key, undefined);
-                                                    
-                                                    this.parentNode.style.height = 0;
-                                                    
-                                                    setTimeout(function(){
-                                                        this.parentNode.remove();
-                                                    }, .2);
-                                                }
+                                                value: {
+                                                    key: "f",
+                                                    keyCode: 70,
+                                                    shiftKey: false,
+                                                    ctrlKey: true,
+                                                    altKey: false,
+                                                    click: false,
+                                                    context: false,
+                                                    wheel: false
+                                                },
+                                                storage_key: 'global/search'
                                             }
                                         };
-                                        
-                                        length++;
+
+                                    for (var key in data) {
+                                        if (['cut', 'copy', 'paste', 'select', 'drag_and_drop'].indexOf(key) === -1) {
+                                            list[key] = {
+                                                type: 'section',
+                                                class: 'satus-section--row',
+
+                                                shortcut: {
+                                                    type: 'shortcut',
+                                                    storage_key: 'global/' + key
+                                                },
+                                                remove: {
+                                                    type: 'button',
+                                                    class: 'satus-button--remove',
+                                                    before: '<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>',
+                                                    storage_key: 'global/' + key,
+                                                    onclick: function() {
+                                                        satus.storage.set(this.storage_key, undefined);
+
+                                                        this.parentNode.style.height = 0;
+
+                                                        setTimeout(function() {
+                                                            this.parentNode.remove();
+                                                        }, 200);
+                                                    }
+                                                }
+                                            };
+                                        }
                                     }
-                                    
-                                    if (length > 0) {
-                                        satus.render(list, this);
-                                    } else {
-                                        satus.render({
-                                            type: 'text',
-                                            label: 'empty',
-                                            style: {
-                                                margin: '0 16px'
-                                            }
-                                        }, this);
-                                    }
+
+                                    satus.render(list, this);
                                 }
                             }
                         },
                         current: {
                             type: 'tab',
                             label: 'current',
-                            
+
                             section: {
                                 type: 'section',
                                 class: 'satus-section--shortcuts',
@@ -609,12 +656,12 @@ function init(response) {
                                     var data = satus.storage.get('websites/' + HOSTNAME + '/items') || {},
                                         list = {},
                                         length = 0;
-                                    
+
                                     for (var key in data) {
                                         list[key] = {
                                             type: 'section',
                                             class: 'satus-section--row',
-                                            
+
                                             shortcut: {
                                                 type: 'shortcut',
                                                 storage_key: 'websites/' + HOSTNAME + '/items/' + key
@@ -626,19 +673,19 @@ function init(response) {
                                                 storage_key: 'websites/' + HOSTNAME + '/items/' + key,
                                                 onclick: function() {
                                                     satus.storage.set(this.storage_key, undefined);
-                                                    
+
                                                     this.parentNode.style.height = 0;
-                                                    
-                                                    setTimeout(function(){
+
+                                                    setTimeout(function() {
                                                         this.parentNode.remove();
                                                     }, .2);
                                                 }
                                             }
                                         };
-                                        
+
                                         length++;
                                     }
-                                    
+
                                     if (length > 0) {
                                         satus.render(list, this);
                                     } else {
@@ -660,63 +707,111 @@ function init(response) {
                         class: 'satus-section--label',
                         label: 'global'
                     };
-                    
+
+                    Menu.main.section.filters.section_00 = {
+                        type: 'section',
+
+                        clipboard: {
+                            type: 'folder',
+                            label: 'clipboard',
+
+                            section: {
+                                type: 'section',
+
+                                cut: {
+                                    type: 'switch',
+                                    label: 'cut',
+                                    value: true,
+                                    storage_key: 'global/cut'
+                                },
+                                copy: {
+                                    type: 'switch',
+                                    label: 'copy',
+                                    value: true,
+                                    storage_key: 'global/copy'
+                                },
+                                paste: {
+                                    type: 'switch',
+                                    label: 'paste',
+                                    value: true,
+                                    storage_key: 'global/paste'
+                                }
+                            }
+                        },
+                        select: {
+                            type: 'switch',
+                            label: 'select',
+                            value: true,
+                            storage_key: 'global/select'
+                        },
+                        drag_and_drop: {
+                            type: 'switch',
+                            label: 'dragAndDrop',
+                            value: true,
+                            storage_key: 'global/drag_and_drop'
+                        }
+                    };
+
                     Menu.main.section.filters.section = {
                         type: 'section',
-                        class: 'satus-section--shortcuts',
+                        class: 'satus-section--shortcuts global',
                         onrender: function() {
                             var data = satus.storage.get('global') || {},
-                                list = {},
-                                length = 0;
-                            
-                            for (var key in data) {
-                                list[key] = {
-                                    type: 'section',
-                                    class: 'satus-section--row',
-                                    
-                                    shortcut: {
+                                list = {
+                                    search: {
                                         type: 'shortcut',
-                                        storage_key: 'global/' + key
-                                    },
-                                    remove: {
-                                        type: 'button',
-                                        class: 'satus-button--remove',
-                                        before: '<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>',
-                                        storage_key: 'global/' + key,
-                                        onclick: function() {
-                                            satus.storage.set(this.storage_key, undefined);
-                                            
-                                            this.parentNode.style.height = 0;
-                                            
-                                            setTimeout(function(){
-                                                this.parentNode.remove();
-                                            }, .2);
-                                        }
+                                        value: {
+                                            key: "f",
+                                            keyCode: 70,
+                                            shiftKey: false,
+                                            ctrlKey: true,
+                                            altKey: false,
+                                            click: false,
+                                            context: false,
+                                            wheel: false
+                                        },
+                                        storage_key: 'global/search'
                                     }
                                 };
-                                
-                                length++;
+
+                            for (var key in data) {
+                                if (['cut', 'copy', 'paste', 'select', 'drag_and_drop'].indexOf(key) === -1) {
+                                    list[key] = {
+                                        type: 'section',
+                                        class: 'satus-section--row',
+
+                                        shortcut: {
+                                            type: 'shortcut',
+                                            storage_key: 'global/' + key
+                                        },
+                                        remove: {
+                                            type: 'button',
+                                            class: 'satus-button--remove',
+                                            before: '<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>',
+                                            storage_key: 'global/' + key,
+                                            onclick: function() {
+                                                satus.storage.set(this.storage_key, undefined);
+
+                                                this.parentNode.style.height = 0;
+
+                                                setTimeout(function() {
+                                                    this.parentNode.remove();
+                                                }, .2);
+                                            }
+                                        }
+                                    };
+                                }
                             }
-                            
-                            if (length > 0) {
-                                satus.render(list, this);
-                            } else {
-                                satus.render({
-                                    type: 'text',
-                                    label: 'empty',
-                                    style: {
-                                        margin: '0 16px'
-                                    }
-                                }, this);
-                            }
+
+                            satus.render(list, this);
                         }
                     };
                 }
-                    
+
                 Menu.main.section.filters.footer = {
                     type: 'div',
                     class: 'satus-div--create',
-                    
+
                     button: {
                         type: 'shortcut',
                         class: 'satus-shortcut--create',
@@ -727,10 +822,46 @@ function init(response) {
                             } else {
                                 this.skelet.storage_key = 'websites/' + HOSTNAME + '/items/' + new Date().getTime();
                             }
+                        },
+                        onchange: function(object, value) {
+                            var item = {
+                                type: 'section',
+                                class: 'satus-section--row',
+
+                                shortcut: {
+                                    type: 'shortcut',
+                                    storage_key: object.storage_key
+                                },
+                                remove: {
+                                    type: 'button',
+                                    class: 'satus-button--remove',
+                                    before: '<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>',
+                                    storage_key: object.storage_key,
+                                    onclick: function() {
+                                        satus.storage.set(this.storage_key, undefined);
+
+                                        this.parentNode.style.height = 0;
+
+                                        setTimeout(function() {
+                                            this.parentNode.remove();
+                                        }, 200);
+                                    }
+                                }
+                            };
+                            
+                            if (document.querySelector('.global')) {
+                                satus.render(item, document.querySelector('.global'));
+                            } else {
+                                if (document.querySelector('.satus-section--shortcuts .satus-text')) {
+                                    document.querySelector('.satus-section--shortcuts .satus-text').remove();
+                                }
+                                
+                                satus.render(item, document.querySelector('.satus-section--shortcuts'));
+                            }
                         }
                     }
                 };
-                
+
                 satus.render(Menu);
             });
         });

@@ -145,5 +145,23 @@
     },
     "empty": {
         "message": "Empty"
+    },
+    "cut": {
+        "message": "Cut"
+    },
+    "copy": {
+        "message": "Copy"
+    },
+    "paste": {
+        "message": "Paste"
+    },
+    "clipboard": {
+        "message": "Clipboard"
+    },
+    "select": {
+        "message": "Select"
+    },
+    "dragAndDrop": {
+        "message": "Drag & Drop"
     }
 }

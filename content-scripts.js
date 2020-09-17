@@ -38,10 +38,10 @@ function prevent(event) {
             var data = JSON.parse(SETTINGS.data[key]);
 
             if (
-                data.key === HID.key &&
-                data.shiftKey === HID.shiftKey &&
-                data.ctrlKey === HID.ctrlKey &&
-                data.altKey === HID.altKey &&
+                (data.key === HID.key || isset(data.key) === false) &&
+                (data.shiftKey === HID.shiftKey || isset(data.shiftKey) === false) &&
+                (data.ctrlKey === HID.ctrlKey || isset(data.ctrlKey) === false) &&
+                (data.altKey === HID.altKey || isset(data.altKey) === false) &&
                 data.click === HID.click &&
                 data.context === HID.context &&
                 data.wheel === HID.wheel
@@ -202,9 +202,75 @@ window.addEventListener('mouseup', function(event) {
     }
 }, true);
 
+window.addEventListener('cut', function(event) {
+    if (SETTINGS.data.cut !== false) {
+        event.stopPropagation();
+    }
+}, true);
+
+window.addEventListener('copy', function(event) {
+    if (SETTINGS.data.copy !== false) {
+        console.log('COPY', event);
+        event.stopPropagation();
+    }
+}, true);
+
+window.addEventListener('paste', function(event) {
+    if (SETTINGS.data.paste !== false) {
+        event.stopPropagation();
+    }
+}, true);
+
+window.addEventListener('select', function(event) {
+    if (SETTINGS.data.select !== false) {
+        event.stopPropagation();
+    }
+}, true);
+
+window.addEventListener('drag', function(event) {
+    if (SETTINGS.data.drag_and_drop !== false) {
+        event.stopPropagation();
+    }
+}, true);
+
+window.addEventListener('dragend', function(event) {
+    if (SETTINGS.data.drag_and_drop !== false) {
+        event.stopPropagation();
+    }
+}, true);
+
+window.addEventListener('dragenter', function(event) {
+    if (SETTINGS.data.drag_and_drop !== false) {
+        event.stopPropagation();
+    }
+}, true);
+
+window.addEventListener('dragstart', function(event) {
+    if (SETTINGS.data.drag_and_drop !== false) {
+        event.stopPropagation();
+    }
+}, true);
+
+window.addEventListener('dragleave', function(event) {
+    if (SETTINGS.data.drag_and_drop !== false) {
+        event.stopPropagation();
+    }
+}, true);
+
+window.addEventListener('dragover', function(event) {
+    if (SETTINGS.data.drag_and_drop !== false) {
+        event.stopPropagation();
+    }
+}, true);
+
+window.addEventListener('drop', function(event) {
+    if (SETTINGS.data.drag_and_drop !== false) {
+        event.stopPropagation();
+    }
+}, true);
+
 /*window.addEventListener('dbclick', prevent, true);
-window.addEventListener('mousemove', prevent, true);
-window.addEventListener('select', prevent, true);*/
+window.addEventListener('mousemove', prevent, true);*/
 
 
 /*---------------------------------------------------------------
