@@ -1,6 +1,7 @@
 {
     "manifest_version": 2,
-    "name": "HID control prevention",
+    "name": "CTRL-F-Freedom + Right-Click COPY Liberator", 
+     "description": "Your keys are yours. They can't hijack your control S TAB ALT shift T W A CMD Copy Paste Hotkey Keyboard Mouse Touch ctrl X HID esc",
     "version": "1.0",
     "icons": {
         "16": "assets/icons/16.png",
