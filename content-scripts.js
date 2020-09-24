@@ -228,43 +228,43 @@ window.addEventListener('select', function(event) {
 }, true);
 
 window.addEventListener('drag', function(event) {
-    if (SETTINGS.data.drag_and_drop !== false) {
+    if (SETTINGS.data.drag_and_drop === true) {
         event.stopPropagation();
     }
 }, true);
 
 window.addEventListener('dragend', function(event) {
-    if (SETTINGS.data.drag_and_drop !== false) {
+    if (SETTINGS.data.drag_and_drop === true) {
         event.stopPropagation();
     }
 }, true);
 
 window.addEventListener('dragenter', function(event) {
-    if (SETTINGS.data.drag_and_drop !== false) {
+    if (SETTINGS.data.drag_and_drop === true) {
         event.stopPropagation();
     }
 }, true);
 
 window.addEventListener('dragstart', function(event) {
-    if (SETTINGS.data.drag_and_drop !== false) {
+    if (SETTINGS.data.drag_and_drop === true) {
         event.stopPropagation();
     }
 }, true);
 
 window.addEventListener('dragleave', function(event) {
-    if (SETTINGS.data.drag_and_drop !== false) {
+    if (SETTINGS.data.drag_and_drop === true) {
         event.stopPropagation();
     }
 }, true);
 
 window.addEventListener('dragover', function(event) {
-    if (SETTINGS.data.drag_and_drop !== false) {
+    if (SETTINGS.data.drag_and_drop === true) {
         event.stopPropagation();
     }
 }, true);
 
 window.addEventListener('drop', function(event) {
-    if (SETTINGS.data.drag_and_drop !== false) {
+    if (SETTINGS.data.drag_and_drop === true) {
         event.stopPropagation();
     }
 }, true);

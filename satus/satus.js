@@ -1381,103 +1381,73 @@ Satus.components.textField = function(element) {
 --------------------------------------------------------------*/
 
 Satus.components.main = function(object) {
-    var component = document.createElement('main'),
-        component_container = document.createElement('div'),
-        component_scrollbar = Satus.components.scrollbar(component_container, object.scrollbar);
+    var component = document.createElement('main');
 
     component.history = [object];
-
-    component.back = function() {
-        var container = this.querySelector('.satus-main__container'),
+    
+    function create(self, animation, callback) {
+        var container = self.querySelector('.satus-main__container'),
             component_container = document.createElement('div'),
-            component_scrollbar = Satus.components.scrollbar(component_container);
-
-        container.classList.add('satus-animation--fade-out-right');
-        component_container.className = 'satus-main__container satus-animation--fade-in-left';
-
-        this.history.pop();
-
-        for (var key in this.history[this.history.length - 1]) {
-            Satus.render(this.history[this.history.length - 1][key], component_scrollbar);
-        }
-
-        this.appendChild(component_container);
-
-        if (this.historyListener) {
-            this.historyListener(component_container);
-        }
-
-        if (this.history[this.history.length - 1].onopen) {
-            component_scrollbar.onopen = this.history[this.history.length - 1].onopen;
-
-            component_scrollbar.onopen();
-        }
+            component_scrollbar = Satus.components.scrollbar(component_container),
+            object = self.history[self.history.length - 1];
         
-        var id = this.history[this.history.length - 1].appearanceKey;
+        component_container.className = 'satus-main__container';
         
-        document.body.dataset.appearance = id;
-        this.dataset.appearance = id;
-
-        setTimeout(function() {
-            container.remove();
-        }, Satus.getAnimationDuration(container));
-    };
-
-    component.open = function(element, callback, animated) {
-        var container = this.querySelector('.satus-main__container'),
-            component_container = document.createElement('div'),
-            component_scrollbar = Satus.components.scrollbar(component_container);
-
-        if (animated !== false) {
+        if (animation === 2) {
             container.classList.add('satus-animation--fade-out-left');
             component_container.className = 'satus-main__container satus-animation--fade-in-right';
-        } else {
-            component_container.className = 'satus-main__container';
+        } else if (animation === 1) {
+            self.history.pop();
+            
+            object = self.history[self.history.length - 1];
+            
+            container.classList.add('satus-animation--fade-out-right');
+            component_container.className = 'satus-main__container satus-animation--fade-in-left';
+        }
+        
+        document.body.dataset.appearance = object.appearanceKey;
+        component_container.dataset.appearance = object.appearanceKey;
+
+        for (var key in object) {
+            Satus.render(object[key], component_scrollbar);
         }
 
-        this.history.push(element);
-
-        for (var key in this.history[this.history.length - 1]) {
-            Satus.render(this.history[this.history.length - 1][key], component_scrollbar);
+        self.appendChild(component_container);
+        
+        if (self.historyListener) {
+            self.historyListener(component_container);
         }
 
-        this.appendChild(component_container);
-
-        if (this.historyListener) {
-            this.historyListener(component_container);
-        }
-
-        if (callback) {
-            component_scrollbar.onopen = callback;
+        if (object.onopen || callback) {
+            component_scrollbar.onopen = object.onopen || callback;
 
             component_scrollbar.onopen();
         }
         
-        var id = this.history[this.history.length - 1].appearanceKey;
-        
-        document.body.dataset.appearance = id;
-        this.dataset.appearance = id;
+        if (container) {
+            setTimeout(function() {
+                container.remove();
+            }, Satus.getAnimationDuration(container));
+        }
+    }
 
-        setTimeout(function() {
-            container.remove();
-        }, Satus.getAnimationDuration(container));
+    create(component, 0);
+    
+    component.back = function() {
+        create(this, 1);
     };
-
-    component_container.className = 'satus-main__container';
-
-    if (object.on && object.on.change) {
-        component.historyListener = object.on.change;
+    
+    component.open = function(element, callback) {
+        this.history.push(element);
+        
+        create(this, 2, callback);
+    };
+    
+    if (object.on && object.on.change || object.onchange) {
+        component.historyListener = object.on && object.on.change || object.onchange;
+        
+        component.historyListener(component.querySelector('.satus-main__container'));
     }
-
-    if (component.historyListener) {
-        component.historyListener(component_container);
-    }
-
-    for (var key in object) {
-        Satus.render(object[key], component_scrollbar);
-    }
-
-    component.appendChild(component_container);
 
     return component;
 };
