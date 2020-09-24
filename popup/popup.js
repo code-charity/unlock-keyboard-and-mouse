@@ -585,7 +585,7 @@ function init(response) {
                                 drag_and_drop: {
                                     type: 'switch',
                                     label: 'dragAndDrop',
-                                    value: true,
+                                    value: false,
                                     storage_key: 'global/drag_and_drop'
                                 }
                             },
