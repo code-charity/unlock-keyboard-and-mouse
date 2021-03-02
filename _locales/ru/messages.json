@@ -1,0 +1,11 @@
+{
+    "os": {
+        "message": "OS"
+    },
+    "software": {
+        "message": "Software"
+    },
+    "hardware": {
+        "message": "Hardware"
+    }
+}
