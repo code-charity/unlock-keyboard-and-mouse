@@ -1,165 +1,162 @@
 {
     "about": {
-        "message": "About"
+        "message": "Über"
     },
     "accept": {
-        "message": "Accept"
+        "message": "Akzeptieren"
     },
     "audioFormats": {
-        "message": "Audio formats"
+        "message": "Audioformate"
     },
     "backupAndReset": {
-        "message": "Backup & reset"
+        "message": "Backup & zurücksetzen"
     },
     "browser": {
         "message": "Browser"
     },
     "cancel": {
-        "message": "Cancel"
+        "message": "Abbrechen"
     },
     "cores": {
-        "message": "Cores"
+        "message": "Kerne"
     },
     "dateAndTime": {
-        "message": "Date & time"
+        "message": "Datum & Zeit"
     },
     "device": {
-        "message": "Device"
+        "message": "Gerät"
     },
     "disabled": {
-        "message": "Disabled"
+        "message": "Deaktiviert"
     },
     "exportSettings": {
-        "message": "Export settings"
+        "message": "Einstellungen exportieren"
     },
     "extension": {
-        "message": "Extension"
+        "message": "Erweiterung"
     },
     "flash": {
-        "message": "Flash"
+        "message": "Blitz"
     },
     "general": {
-        "message": "General"
+        "message": "Generell"
     },
     "gpu": {
         "message": "GPU"
     },
     "importSettings": {
-        "message": "Import settings"
+        "message": "Einstellungen importieren"
     },
     "invertColors": {
-        "message": "Invert colors"
+        "message": "Farben invertieren"
     },
     "language": {
-        "message": "Language"
+        "message": "Sprache"
     },
     "languages": {
-        "message": "Languages"
+        "message": "Sprachen"
     },
     "name": {
         "message": "Name"
     },
     "notAllowedtoAccessThisPage": {
-        "message": "Not allowed to access this page."
+        "message": "Zugriff auf dieser Seite nicht erlaubt."
     },
     "ok": {
         "message": "OK"
     },
     "os": {
-        "message": "OS"
+        "message": "Betriebssystem"
     },
     "permissionIsNotGranted": {
-        "message": "Permission is not granted"
+        "message": "Berechtigung nicht erteilt"
     },
     "permissions": {
-        "message": "Permissions"
+        "message": "Berechtigungen"
     },
     "platform": {
-        "message": "Platform"
+        "message": "Plattform"
     },
     "ram": {
         "message": "RAM"
     },
     "remove": {
-        "message": "Remove"
+        "message": "Entfernen"
     },
     "resetAllSettings": {
-        "message": "Reset all settings"
+        "message": "Alle Einstellungen zurücksetzen"
     },
     "resetSettings": {
-        "message": "Reset settings?"
+        "message": "Wirklich alle Einstellungen zurücksetzen?"
     },
     "saveAs": {
-        "message": "Save as..."
+        "message": "Speichern als..."
     },
     "settings": {
-        "message": "Settings"
+        "message": "Einstellungen"
     },
     "successfullyImportedSettings": {
-        "message": "Successfully imported settings"
+        "message": "Einstellungen erfolreich importiert"
     },
     "sunsetToSunrise": {
-        "message": "Sunset to sunrise"
+        "message": "Sonnenaufgang bis Sonnenuntergang"
     },
     "systemPeference": {
-        "message": "System preference"
+        "message": "Systemeinstellung"
     },
     "theListIsEmpty": {
-        "message": "The list is empty"
+        "message": "Die Liste ist leer"
     },
     "thisWillResetAllSettings": {
-        "message": "This will reset all settings"
+        "message": "Das wird alle Einstellungen zurücksetzen"
     },
     "type": {
-        "message": "Type"
+        "message": "Typ"
     },
     "use24HourFormat": {
-        "message": "Use 24-hour format"
+        "message": "24-Stunden Format verwenden"
     },
     "version": {
         "message": "Version"
     },
     "videoFormats": {
-        "message": "Video formats"
+        "message": "Videoformate"
     },
     "websites": {
-        "message": "Websites"
+        "message": "Websiten"
     },
     "rateUs": {
-        "message": "Rate us"
+        "message": "Bewerten"
     },
     "filters": {
-        "message": "Filters"
+        "message": "Filter"
     },
     "global": {
         "message": "Global"
     },
     "current": {
-        "message": "Current"
+        "message": "Aktuell"
     },
     "addNewFilter": {
-        "message": "Add new filter"
-    },
-    "websites": {
-        "message": "Websites"
+        "message": "Neuen Filter hinzufügen"
     },
     "empty": {
-        "message": "Empty"
+        "message": "Leer"
     },
     "cut": {
-        "message": "Cut"
+        "message": "Ausschneiden"
     },
     "copy": {
-        "message": "Copy"
+        "message": "Kopieren"
     },
     "paste": {
-        "message": "Paste"
+        "message": "Einfügen"
     },
     "clipboard": {
-        "message": "Clipboard"
+        "message": "Zwischenablage"
     },
     "select": {
-        "message": "Select"
+        "message": "Auswählen"
     },
     "dragAndDrop": {
         "message": "Drag & Drop"
