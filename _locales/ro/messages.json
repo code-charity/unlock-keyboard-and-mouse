@@ -5,11 +5,23 @@
     "accept": {
         "message": "Accept"
     },
+    "addNewFilter": {
+        "message": "Add new filter"
+    },
+    "areYouSureYouWantToExportTheData": {
+        "message": "Are you sure you want to export the data?"
+    },
+    "areYouSureYouWantToImportTheData": {
+        "message": "Are you sure you want to import the data?"
+    },
     "audioFormats": {
         "message": "Audio formats"
     },
     "backupAndReset": {
         "message": "Backup & reset"
+    },
+    "black": {
+        "message": "Black"
     },
     "browser": {
         "message": "Browser"
@@ -17,11 +29,29 @@
     "cancel": {
         "message": "Cancel"
     },
+    "clipboard": {
+        "message": "Clipboard"
+    },
+    "copy": {
+        "message": "Copy"
+    },
     "cores": {
         "message": "Cores"
     },
+    "current": {
+        "message": "Current"
+    },
+    "cut": {
+        "message": "Cut"
+    },
+    "dark": {
+        "message": "Dark"
+    },
     "dateAndTime": {
         "message": "Date & time"
+    },
+    "description_ext": {
+        "message": "Unblock Mouse Clicks, Selection, Drag & Drop, Cut, Copy, Paste and more..."
     },
     "device": {
         "message": "Device"
@@ -29,11 +59,23 @@
     "disabled": {
         "message": "Disabled"
     },
+    "dragAndDrop": {
+        "message": "Drag & Drop"
+    },
+    "empty": {
+        "message": "Empty"
+    },
+    "export": {
+        "message": "Export"
+    },
     "exportSettings": {
         "message": "Export settings"
     },
     "extension": {
         "message": "Extension"
+    },
+    "filters": {
+        "message": "Filters"
     },
     "flash": {
         "message": "Flash"
@@ -41,8 +83,14 @@
     "general": {
         "message": "General"
     },
+    "global": {
+        "message": "Global"
+    },
     "gpu": {
         "message": "GPU"
+    },
+    "import": {
+        "message": "Import"
     },
     "importSettings": {
         "message": "Import settings"
@@ -56,6 +104,9 @@
     "languages": {
         "message": "Languages"
     },
+    "light": {
+        "message": "Light"
+    },
     "name": {
         "message": "Name"
     },
@@ -67,6 +118,9 @@
     },
     "os": {
         "message": "OS"
+    },
+    "paste": {
+        "message": "Paste"
     },
     "permissionIsNotGranted": {
         "message": "Permission is not granted"
@@ -80,8 +134,14 @@
     "ram": {
         "message": "RAM"
     },
+    "rateUs": {
+        "message": "Rate us"
+    },
     "remove": {
         "message": "Remove"
+    },
+    "reset": {
+        "message": "Reset"
     },
     "resetAllSettings": {
         "message": "Reset all settings"
@@ -89,11 +149,20 @@
     "resetSettings": {
         "message": "Reset settings?"
     },
+    "save": {
+        "message": "Save"
+    },
     "saveAs": {
         "message": "Save as..."
     },
+    "select": {
+        "message": "Select"
+    },
     "settings": {
         "message": "Settings"
+    },
+    "somethingWentWrongTryReloadingThePage": {
+        "message": "Something went wrong. Try reloading the page."
     },
     "successfullyImportedSettings": {
         "message": "Successfully imported settings"
@@ -106,6 +175,9 @@
     },
     "theListIsEmpty": {
         "message": "The list is empty"
+    },
+    "theme": {
+        "message": "Theme"
     },
     "thisWillResetAllSettings": {
         "message": "This will reset all settings"
@@ -124,44 +196,5 @@
     },
     "websites": {
         "message": "Websites"
-    },
-    "rateUs": {
-        "message": "Rate us"
-    },
-    "filters": {
-        "message": "Filters"
-    },
-    "global": {
-        "message": "Global"
-    },
-    "current": {
-        "message": "Current"
-    },
-    "addNewFilter": {
-        "message": "Add new filter"
-    },
-    "websites": {
-        "message": "Websites"
-    },
-    "empty": {
-        "message": "Empty"
-    },
-    "cut": {
-        "message": "Cut"
-    },
-    "copy": {
-        "message": "Copy"
-    },
-    "paste": {
-        "message": "Paste"
-    },
-    "clipboard": {
-        "message": "Clipboard"
-    },
-    "select": {
-        "message": "Select"
-    },
-    "dragAndDrop": {
-        "message": "Drag & Drop"
     }
 }
