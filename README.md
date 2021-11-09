@@ -1,6 +1,6 @@
 <p align="center">
     <a href="https://github.com/victor-savinov/hid-control-prevention">
-        <img src="https://github.com/victor-savinov/icons/blob/master/hid-control-prevention/raised-128.png">
+        <img src="https://github.com/victor-savinov/graphics/blob/master/icons/hid-control-prevention/raised-128.png">
     </a>
 </p>
 

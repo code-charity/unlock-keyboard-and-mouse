@@ -5,11 +5,23 @@
     "accept": {
         "message": "Akzeptieren"
     },
+    "addNewFilter": {
+        "message": "Neuen Filter hinzufügen"
+    },
+    "areYouSureYouWantToExportTheData": {
+        "message": "Are you sure you want to export the data?"
+    },
+    "areYouSureYouWantToImportTheData": {
+        "message": "Are you sure you want to import the data?"
+    },
     "audioFormats": {
         "message": "Audioformate"
     },
     "backupAndReset": {
         "message": "Backup & zurücksetzen"
+    },
+    "black": {
+        "message": "Black"
     },
     "browser": {
         "message": "Browser"
@@ -17,11 +29,29 @@
     "cancel": {
         "message": "Abbrechen"
     },
+    "clipboard": {
+        "message": "Zwischenablage"
+    },
+    "copy": {
+        "message": "Kopieren"
+    },
     "cores": {
         "message": "Kerne"
     },
+    "current": {
+        "message": "Aktuell"
+    },
+    "cut": {
+        "message": "Ausschneiden"
+    },
+    "dark": {
+        "message": "Dark"
+    },
     "dateAndTime": {
         "message": "Datum & Zeit"
+    },
+    "description_ext": {
+        "message": "Unblock Mouse Clicks, Selection, Drag & Drop, Cut, Copy, Paste and more..."
     },
     "device": {
         "message": "Gerät"
@@ -29,11 +59,23 @@
     "disabled": {
         "message": "Deaktiviert"
     },
+    "dragAndDrop": {
+        "message": "Drag & Drop"
+    },
+    "empty": {
+        "message": "Leer"
+    },
+    "export": {
+        "message": "Export"
+    },
     "exportSettings": {
         "message": "Einstellungen exportieren"
     },
     "extension": {
         "message": "Erweiterung"
+    },
+    "filters": {
+        "message": "Filters"
     },
     "flash": {
         "message": "Blitz"
@@ -41,8 +83,14 @@
     "general": {
         "message": "Generell"
     },
+    "global": {
+        "message": "Global"
+    },
     "gpu": {
         "message": "GPU"
+    },
+    "import": {
+        "message": "Import"
     },
     "importSettings": {
         "message": "Einstellungen importieren"
@@ -56,6 +104,9 @@
     "languages": {
         "message": "Sprachen"
     },
+    "light": {
+        "message": "Light"
+    },
     "name": {
         "message": "Name"
     },
@@ -67,6 +118,9 @@
     },
     "os": {
         "message": "Betriebssystem"
+    },
+    "paste": {
+        "message": "Einfügen"
     },
     "permissionIsNotGranted": {
         "message": "Berechtigung nicht erteilt"
@@ -80,8 +134,14 @@
     "ram": {
         "message": "RAM"
     },
+    "rateUs": {
+        "message": "Bewerten"
+    },
     "remove": {
         "message": "Entfernen"
+    },
+    "reset": {
+        "message": "Reset"
     },
     "resetAllSettings": {
         "message": "Alle Einstellungen zurücksetzen"
@@ -89,11 +149,20 @@
     "resetSettings": {
         "message": "Wirklich alle Einstellungen zurücksetzen?"
     },
+    "save": {
+        "message": "Save"
+    },
     "saveAs": {
         "message": "Speichern als..."
     },
+    "select": {
+        "message": "Auswählen"
+    },
     "settings": {
         "message": "Einstellungen"
+    },
+    "somethingWentWrongTryReloadingThePage": {
+        "message": "Something went wrong. Try reloading the page."
     },
     "successfullyImportedSettings": {
         "message": "Einstellungen erfolreich importiert"
@@ -106,6 +175,9 @@
     },
     "theListIsEmpty": {
         "message": "Die Liste ist leer"
+    },
+    "theme": {
+        "message": "Theme"
     },
     "thisWillResetAllSettings": {
         "message": "Das wird alle Einstellungen zurücksetzen"
@@ -124,41 +196,5 @@
     },
     "websites": {
         "message": "Websiten"
-    },
-    "rateUs": {
-        "message": "Bewerten"
-    },
-    "filters": {
-        "message": "Filter"
-    },
-    "global": {
-        "message": "Global"
-    },
-    "current": {
-        "message": "Aktuell"
-    },
-    "addNewFilter": {
-        "message": "Neuen Filter hinzufügen"
-    },
-    "empty": {
-        "message": "Leer"
-    },
-    "cut": {
-        "message": "Ausschneiden"
-    },
-    "copy": {
-        "message": "Kopieren"
-    },
-    "paste": {
-        "message": "Einfügen"
-    },
-    "clipboard": {
-        "message": "Zwischenablage"
-    },
-    "select": {
-        "message": "Auswählen"
-    },
-    "dragAndDrop": {
-        "message": "Drag & Drop"
     }
 }

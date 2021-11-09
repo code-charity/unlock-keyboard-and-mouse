@@ -1,11 +1,56 @@
 {
-    "os": {
-        "message": "OS"
+    "areYouSureYouWantToExportTheData": {
+        "message": "Вы уверены, что хотите экспортировать данные?"
     },
-    "software": {
-        "message": "Software"
+    "areYouSureYouWantToImportTheData": {
+        "message": "Вы уверены, что хотите импортировать данные?"
+    },
+    "black": {
+        "message": "Черная"
+    },
+    "cancel": {
+        "message": "Отмена"
+    },
+    "dark": {
+        "message": "Темная"
+    },
+    "description_ext": {
+        "message": "Разблокируйте щелчки мыши, выделение, перетаскивание, вырезание, копирование, вставку и многое другое..."
+    },
+    "export": {
+        "message": "Экспорт"
     },
     "hardware": {
-        "message": "Hardware"
+        "message": "Железо"
+    },
+    "import": {
+        "message": "Импорт"
+    },
+    "language": {
+        "message": "Язык"
+    },
+    "light": {
+        "message": "Светлая"
+    },
+    "ok": {
+        "message": "Ок"
+    },
+    "os": {
+        "message": "ОС"
+    },
+    "reset": {
+        "message": "Сброс"
+    },
+    "save": {
+        "message": "Сохранить"
+    },
+    "software": {
+        "message": "ПО"
+    },
+    "somethingWentWrongTryReloadingThePage": {
+        "message": "Что-то пошло не так. Попробуйте перезагрузить страницу."
+    },
+    "theme": {
+        "message": "Тема"
     }
 }

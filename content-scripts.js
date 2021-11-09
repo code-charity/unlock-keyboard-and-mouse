@@ -1,11 +1,106 @@
 /*---------------------------------------------------------------
 >>> HID control prevention
 -----------------------------------------------------------------
+# Global variable
+# Storage
+    # Get
+    # Set
+    # Import
+# Initialization
+
 1.0 Function
 2.0 Keyboard
 3.0 Mouse
 4.0 Touch
 ---------------------------------------------------------------*/
+
+/*--------------------------------------------------------------
+# GLOBAL VARIABLE
+--------------------------------------------------------------*/
+
+var extension = {
+    hostname: location.hostname,
+    storage: {
+        data: {}
+    }
+};
+
+
+/*--------------------------------------------------------------
+# STORAGE
+--------------------------------------------------------------*/
+
+/*--------------------------------------------------------------
+# GET
+--------------------------------------------------------------*/
+
+extension.storage.get = function (name) {
+    return this.data[name];
+};
+
+
+/*--------------------------------------------------------------
+# SET
+--------------------------------------------------------------*/
+
+extension.storage.set = function (name, value) {
+    var object = {};
+
+    object[name] = value;
+
+    chrome.storage.local.set(object);
+};
+
+
+/*--------------------------------------------------------------
+# IMPORT
+--------------------------------------------------------------*/
+
+extension.storage.import = function (callback) {
+    chrome.storage.local.get(function (items) {
+        for (var key in items) {
+            extension.storage.data[key] = items[key];
+        }
+
+        callback();
+    });
+};
+
+
+/*--------------------------------------------------------------
+# INITIALIZATION
+--------------------------------------------------------------*/
+
+chrome.runtime.onMessage.addListener(function (message, sender, sendResponse) {
+    if (message.action === 'get-tab-hostname') {
+        if (window === window.top) {
+            sendResponse(extension.hostname);
+        }
+    }
+});
+
+chrome.runtime.sendMessage({
+    action: 'get-tab-hostname'
+}, function (response) {
+    extension.hostname = response.hostname;
+
+    extension.storage.import(function () {});
+});
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 /*---------------------------------------------------------------
 1.0 FUNCTION
