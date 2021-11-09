@@ -56,28 +56,28 @@ var current_domain,
 				variant: 'align-end',
 
 				menu: {
-	                component: 'button',
-	                on: {
-	                    click: {
-	                        component: 'modal',
-	                        variant: 'vertical',
+					component: 'button',
+					on: {
+						click: {
+							component: 'modal',
+							variant: 'vertical',
 
-	                        label: {
-	                        	component: 'span',
-	                        	text: 'theme'
-	                        },
-	                        theme: {
-	                        	component: 'tabs',
-	                        	items: [
-	                        		'light',
-	                        		'dark',
-	                        		'black'
-	                        	]
-	                        },
-	                        divider: {
-	                        	component: 'divider'
-	                        },
-	                        language: {
+							label: {
+								component: 'span',
+								text: 'theme'
+							},
+							theme: {
+								component: 'tabs',
+								items: [
+									'light',
+									'dark',
+									'black'
+								]
+							},
+							divider: {
+								component: 'divider'
+							},
+							language: {
 								component: 'select',
 								on: {
 									change: function (name, value) {
@@ -128,17 +128,17 @@ var current_domain,
 							},
 							export: {
 								component: 'button',
-	                            on: {
-	                                click: function () {
-	                                    if (location.href.indexOf('/options.html?action=export') !== -1) {
-	                                        exportData();
-	                                    } else {
-	                                        chrome.tabs.create({
-	                                            url: 'ui/options.html?action=export'
-	                                        });
-	                                    }
-	                                }
-	                            },
+								on: {
+									click: function () {
+										if (location.href.indexOf('/options.html?action=export') !== -1) {
+											exportData();
+										} else {
+											chrome.tabs.create({
+												url: 'ui/options.html?action=export'
+											});
+										}
+									}
+								},
 
 								svg: {
 									component: 'svg',
@@ -165,17 +165,17 @@ var current_domain,
 							},
 							import: {
 								component: 'button',
-	                            on: {
-	                                click: function () {
-	                                    if (location.href.indexOf('/options.html?action=import') !== -1) {
-	                                        importData();
-	                                    } else {
-	                                        chrome.tabs.create({
-	                                            url: 'ui/options.html?action=import'
-	                                        });
-	                                    }
-	                                }
-	                            },
+								on: {
+									click: function () {
+										if (location.href.indexOf('/options.html?action=import') !== -1) {
+											importData();
+										} else {
+											chrome.tabs.create({
+												url: 'ui/options.html?action=import'
+											});
+										}
+									}
+								},
 
 								svg: {
 									component: 'svg',
@@ -200,42 +200,42 @@ var current_domain,
 									text: 'import'
 								}
 							}
-	                    }
-	                },
+						}
+					},
 
-	                svg: {
-	                    component: 'svg',
-	                    attr: {
-	                        'viewBox': '0 0 24 24',
-	                        'fill': 'currentColor'
-	                    },
+					svg: {
+						component: 'svg',
+						attr: {
+							'viewBox': '0 0 24 24',
+							'fill': 'currentColor'
+						},
 
-	                    circle_1: {
-	                        component: 'circle',
-	                        attr: {
-	                            'cx': '12',
-	                            'cy': '5.25',
-	                            'r': '1'
-	                        }
-	                    },
-	                    circle_2: {
-	                        component: 'circle',
-	                        attr: {
-	                            'cx': '12',
-	                            'cy': '12',
-	                            'r': '1'
-	                        }
-	                    },
-	                    circle_3: {
-	                        component: 'circle',
-	                        attr: {
-	                            'cx': '12',
-	                            'cy': '18.75',
-	                            'r': '1'
-	                        }
-	                    }
-	                }
-	            }
+						circle_1: {
+							component: 'circle',
+							attr: {
+								'cx': '12',
+								'cy': '5.25',
+								'r': '1'
+							}
+						},
+						circle_2: {
+							component: 'circle',
+							attr: {
+								'cx': '12',
+								'cy': '12',
+								'r': '1'
+							}
+						},
+						circle_3: {
+							component: 'circle',
+							attr: {
+								'cx': '12',
+								'cy': '18.75',
+								'r': '1'
+							}
+						}
+					}
+				}
 			}
 		},
 		layers: {
@@ -305,61 +305,62 @@ var current_domain,
 														for (var key in data) {
 															var storage = 'websites/' + current_domain + '/items/' + key;
 
-				                                            satus.render({
-				                                                component: 'section',
-				                                                variant: 'row',
+															satus.render({
+																component: 'section',
+																variant: 'row',
 
-				                                                shortcut: {
-				                                                    component: 'shortcut',
-				                                                    storage: storage
-				                                                },
-				                                                remove: {
-				                                                    component: 'button',
-				                                                    variant: 'remove',
-				                                                    storage: storage,
-				                                                    on: {
-				                                                    	click: function() {
-					                                                        satus.storage.set(this.storage, undefined);
+																shortcut: {
+																	component: 'shortcut',
+																	storage: storage,
+																	mouseButtons: true
+																},
+																remove: {
+																	component: 'button',
+																	variant: 'remove',
+																	storage: storage,
+																	on: {
+																		click: function () {
+																			satus.storage.set(this.storage, undefined);
 
-					                                                        this.parentNode.remove();
-					                                                    }
-				                                                    },
+																			this.parentNode.remove();
+																		}
+																	},
 
-				                                                    icon: {
-				                                                    	component: 'svg',
-				                                                    	attr: {
-				                                                    		'viewBox': '0 0 24 24',
-				                                                    		'width': '24',
-				                                                    		'height': '24',
-				                                                    		'fill': 'none',
-				                                                    		'stroke': 'currentColor',
-				                                                    		'stroke-width': '1.75',
-				                                                    		'stroke-linecap': 'round',
-				                                                    		'stroke-linejoin': 'round'
-				                                                    	},
+																	icon: {
+																		component: 'svg',
+																		attr: {
+																			'viewBox': '0 0 24 24',
+																			'width': '24',
+																			'height': '24',
+																			'fill': 'none',
+																			'stroke': 'currentColor',
+																			'stroke-width': '1.75',
+																			'stroke-linecap': 'round',
+																			'stroke-linejoin': 'round'
+																		},
 
-				                                                    	line_1: {
-				                                                    		component: 'line',
-				                                                    		attr: {
-				                                                    			'x1': '18',
-				                                                    			'y1': '6',
-				                                                    			'x2': '6',
-				                                                    			'y2': '18'
-				                                                    		}
-				                                                    	},
-				                                                    	line_2: {
-				                                                    		component: 'line',
-				                                                    		attr: {
-				                                                    			'x1': '6',
-				                                                    			'y1': '6',
-				                                                    			'x2': '18',
-				                                                    			'y2': '18'
-				                                                    		}
-				                                                    	}
-				                                                    }
-				                                                }
-				                                            }, this);
-					                                    }
+																		line_1: {
+																			component: 'line',
+																			attr: {
+																				'x1': '18',
+																				'y1': '6',
+																				'x2': '6',
+																				'y2': '18'
+																			}
+																		},
+																		line_2: {
+																			component: 'line',
+																			attr: {
+																				'x1': '6',
+																				'y1': '6',
+																				'x2': '18',
+																				'y2': '18'
+																			}
+																		}
+																	}
+																}
+															}, this);
+														}
 													}
 												}
 											}, layer);
@@ -373,10 +374,11 @@ var current_domain,
 													variant: 'create',
 													text: 'addNewFilter',
 													storage: false,
+													mouseButtons: true,
 													on: {
-														change: function() {
+														change: function () {
 															satus.storage.set('websites/' + current_domain + '/items/' + new Date().getTime(), this.storageValue);
-															
+
 															var section = this.parentNode.parentNode.children[1];
 
 															satus.empty(section);
@@ -395,52 +397,52 @@ var current_domain,
 								variant: 'card',
 								on: {
 									beforerender: function (skeleton) {
-										
+
 									}
 								},
 
 								clipboard: {
-	                                component: 'button',
-	                                text: 'clipboard',
-	                                on: {
-	                                	click: {
-	                                		section: {
-			                                    component: 'section',
-			                                    variant: 'card',
+									component: 'button',
+									text: 'clipboard',
+									on: {
+										click: {
+											section: {
+												component: 'section',
+												variant: 'card',
 
-			                                    cut: {
-			                                        component: 'switch',
-			                                        text: 'cut',
-			                                        value: true,
-			                                        storage: 'global/cut'
-			                                    },
-			                                    copy: {
-			                                        component: 'switch',
-			                                        text: 'copy',
-			                                        value: true,
-			                                        storage: 'global/copy'
-			                                    },
-			                                    paste: {
-			                                        component: 'switch',
-			                                        text: 'paste',
-			                                        value: true,
-			                                        storage: 'global/paste'
-			                                    }
-			                                }
-	                                	}
-	                                }
-	                            },
-	                            select: {
-	                                component: 'switch',
-	                                text: 'select',
-	                                value: true,
-	                                storage: 'global/select'
-	                            },
-	                            drag_and_drop: {
-	                                component: 'switch',
-	                                text: 'dragAndDrop',
-	                                storage: 'global/drag_and_drop'
-	                            }
+												cut: {
+													component: 'switch',
+													text: 'cut',
+													value: true,
+													storage: 'global/cut'
+												},
+												copy: {
+													component: 'switch',
+													text: 'copy',
+													value: true,
+													storage: 'global/copy'
+												},
+												paste: {
+													component: 'switch',
+													text: 'paste',
+													value: true,
+													storage: 'global/paste'
+												}
+											}
+										}
+									}
+								},
+								select: {
+									component: 'switch',
+									text: 'select',
+									value: true,
+									storage: 'global/select'
+								},
+								drag_and_drop: {
+									component: 'switch',
+									text: 'dragAndDrop',
+									storage: 'global/drag_and_drop'
+								}
 							},
 							shortcuts: {
 								component: 'section',
@@ -451,81 +453,83 @@ var current_domain,
 								on: {
 									render: function () {
 										var data = satus.storage.get('global') || {},
-	                                        list = {
-	                                            search: {
-	                                                component: 'shortcut',
-	                                                value: {
-	                                                    ctrl: true,
-	                                                    keys: {
-	                                                        70: {
-	                                                            key: 'f'
-	                                                        }
-	                                                    }
-	                                                },
-	                                                storage: 'global/search'
-	                                            }
-	                                        };
+											list = {
+												search: {
+													component: 'shortcut',
+													value: {
+														ctrl: true,
+														keys: {
+															70: {
+																key: 'f'
+															}
+														}
+													},
+													storage: 'global/search',
+													mouseButtons: true
+												}
+											};
 
-	                                    for (var key in data) {
-	                                        if (['cut', 'copy', 'paste', 'select', 'drag_and_drop'].indexOf(key) === -1) {
-	                                            list[key] = {
-	                                                component: 'section',
-	                                                variant: 'row',
+										for (var key in data) {
+											if (['cut', 'copy', 'paste', 'select', 'drag_and_drop'].indexOf(key) === -1) {
+												list[key] = {
+													component: 'section',
+													variant: 'row',
 
-	                                                shortcut: {
-	                                                    component: 'shortcut',
-	                                                    storage: 'global/' + key
-	                                                },
-	                                                remove: {
-	                                                    component: 'button',
-	                                                    variant: 'remove',
-	                                                    storage: 'global/' + key,
-	                                                    on: {
-	                                                    	click: function() {
-		                                                        satus.storage.set(this.storage, undefined);
+													shortcut: {
+														component: 'shortcut',
+														storage: 'global/' + key,
+														mouseButtons: true
+													},
+													remove: {
+														component: 'button',
+														variant: 'remove',
+														storage: 'global/' + key,
+														on: {
+															click: function () {
+																satus.storage.set(this.storage, undefined);
 
-		                                                        this.parentNode.remove();
-		                                                    }
-	                                                    },
+																this.parentNode.remove();
+															}
+														},
 
-	                                                    icon: {
-	                                                    	component: 'svg',
-	                                                    	attr: {
-	                                                    		'viewBox': '0 0 24 24',
-	                                                    		'width': '24',
-	                                                    		'height': '24',
-	                                                    		'fill': 'none',
-	                                                    		'stroke': 'currentColor',
-	                                                    		'stroke-width': '1.75',
-	                                                    		'stroke-linecap': 'round',
-	                                                    		'stroke-linejoin': 'round'
-	                                                    	},
+														icon: {
+															component: 'svg',
+															attr: {
+																'viewBox': '0 0 24 24',
+																'width': '24',
+																'height': '24',
+																'fill': 'none',
+																'stroke': 'currentColor',
+																'stroke-width': '1.75',
+																'stroke-linecap': 'round',
+																'stroke-linejoin': 'round'
+															},
 
-	                                                    	line_1: {
-	                                                    		component: 'line',
-	                                                    		attr: {
-	                                                    			'x1': '18',
-	                                                    			'y1': '6',
-	                                                    			'x2': '6',
-	                                                    			'y2': '18'
-	                                                    		}
-	                                                    	},
-	                                                    	line_2: {
-	                                                    		component: 'line',
-	                                                    		attr: {
-	                                                    			'x1': '6',
-	                                                    			'y1': '6',
-	                                                    			'x2': '18',
-	                                                    			'y2': '18'
-	                                                    		}
-	                                                    	}
-	                                                    }
-	                                                }
-	                                            };
-	                                        }
-	                                    }
+															line_1: {
+																component: 'line',
+																attr: {
+																	'x1': '18',
+																	'y1': '6',
+																	'x2': '6',
+																	'y2': '18'
+																}
+															},
+															line_2: {
+																component: 'line',
+																attr: {
+																	'x1': '6',
+																	'y1': '6',
+																	'x2': '18',
+																	'y2': '18'
+																}
+															}
+														}
+													}
+												};
+											}
+										}
 
-	                                    satus.render(list, this);
+										satus.render(list, this);
 									}
 								}
 							},
@@ -538,8 +542,9 @@ var current_domain,
 									variant: 'create',
 									text: 'addNewFilter',
 									storage: false,
+									mouseButtons: true,
 									on: {
-										change: function() {
+										change: function () {
 											satus.storage.set('global/' + new Date().getTime(), this.storageValue);
 
 											var section = this.skeleton.parent.parent.shortcuts;
@@ -622,61 +627,62 @@ var current_domain,
 															for (var key in data) {
 																var storage = 'websites/' + this.hostname + '/items/' + key;
 
-					                                            satus.render({
-					                                                component: 'section',
-					                                                variant: 'row',
+																satus.render({
+																	component: 'section',
+																	variant: 'row',
 
-					                                                shortcut: {
-					                                                    component: 'shortcut',
-					                                                    storage: storage
-					                                                },
-					                                                remove: {
-					                                                    component: 'button',
-					                                                    variant: 'remove',
-					                                                    storage: storage,
-					                                                    on: {
-					                                                    	click: function() {
-						                                                        satus.storage.set(this.storage, undefined);
+																	shortcut: {
+																		component: 'shortcut',
+																		storage: storage,
+																		mouseButtons: true
+																	},
+																	remove: {
+																		component: 'button',
+																		variant: 'remove',
+																		storage: storage,
+																		on: {
+																			click: function () {
+																				satus.storage.set(this.storage, undefined);
 
-						                                                        this.parentNode.remove();
-						                                                    }
-					                                                    },
+																				this.parentNode.remove();
+																			}
+																		},
 
-					                                                    icon: {
-					                                                    	component: 'svg',
-					                                                    	attr: {
-					                                                    		'viewBox': '0 0 24 24',
-					                                                    		'width': '24',
-					                                                    		'height': '24',
-					                                                    		'fill': 'none',
-					                                                    		'stroke': 'currentColor',
-					                                                    		'stroke-width': '1.75',
-					                                                    		'stroke-linecap': 'round',
-					                                                    		'stroke-linejoin': 'round'
-					                                                    	},
+																		icon: {
+																			component: 'svg',
+																			attr: {
+																				'viewBox': '0 0 24 24',
+																				'width': '24',
+																				'height': '24',
+																				'fill': 'none',
+																				'stroke': 'currentColor',
+																				'stroke-width': '1.75',
+																				'stroke-linecap': 'round',
+																				'stroke-linejoin': 'round'
+																			},
 
-					                                                    	line_1: {
-					                                                    		component: 'line',
-					                                                    		attr: {
-					                                                    			'x1': '18',
-					                                                    			'y1': '6',
-					                                                    			'x2': '6',
-					                                                    			'y2': '18'
-					                                                    		}
-					                                                    	},
-					                                                    	line_2: {
-					                                                    		component: 'line',
-					                                                    		attr: {
-					                                                    			'x1': '6',
-					                                                    			'y1': '6',
-					                                                    			'x2': '18',
-					                                                    			'y2': '18'
-					                                                    		}
-					                                                    	}
-					                                                    }
-					                                                }
-					                                            }, this);
-						                                    }
+																			line_1: {
+																				component: 'line',
+																				attr: {
+																					'x1': '18',
+																					'y1': '6',
+																					'x2': '6',
+																					'y2': '18'
+																				}
+																			},
+																			line_2: {
+																				component: 'line',
+																				attr: {
+																					'x1': '6',
+																					'y1': '6',
+																					'x2': '18',
+																					'y2': '18'
+																				}
+																			}
+																		}
+																	}
+																}, this);
+															}
 														}
 													}
 												}
@@ -731,7 +737,6 @@ var current_domain,
 					}
 				}
 			},
-
 			made_with_love: {
 				component: 'a',
 				class: 'made-with-love',
@@ -753,51 +758,51 @@ var current_domain,
 
 function exportData() {
 	if (location.href.indexOf('action=export') !== -1) {
-        var blob;
+		var blob;
 
-        try {
-        	blob = new Blob([JSON.stringify(satus.storage.data)], {
-		        type: 'application/json;charset=utf-8'
-		    });
-        } catch (error) {
-        	return modalError(error);
-        }
+		try {
+			blob = new Blob([JSON.stringify(satus.storage.data)], {
+				type: 'application/json;charset=utf-8'
+			});
+		} catch (error) {
+			return modalError(error);
+		}
 
-	    satus.render({
-	    	component: 'modal',
+		satus.render({
+			component: 'modal',
 
-	    	label: {
-	    		component: 'span',
-	    		text: 'areYouSureYouWantToExportTheData'
-	    	},
-	    	actions: {
-	    		component: 'section',
-	    		variant: 'actions',
+			label: {
+				component: 'span',
+				text: 'areYouSureYouWantToExportTheData'
+			},
+			actions: {
+				component: 'section',
+				variant: 'actions',
 
-	    		ok: {
+				ok: {
 					component: 'button',
 					text: 'ok',
 					on: {
 						click: function () {
 							try {
 								chrome.permissions.request({
-				                    permissions: ['downloads']
-				                }, function (granted) {
-				                    if (granted) {
-				                        chrome.downloads.download({
-				                            url: URL.createObjectURL(blob),
-				                            filename: 'hid-control-prevention.json',
-				                            saveAs: true
-				                        }, function () {
-				                            setTimeout(function () {
-				                            	close();
-				                            }, 1000);
-				                        });
-				                    }
-				                });
-				            } catch (error) {
-			                	return modalError(error);
-			                }
+									permissions: ['downloads']
+								}, function (granted) {
+									if (granted) {
+										chrome.downloads.download({
+											url: URL.createObjectURL(blob),
+											filename: 'hid-control-prevention.json',
+											saveAs: true
+										}, function () {
+											setTimeout(function () {
+												close();
+											}, 1000);
+										});
+									}
+								});
+							} catch (error) {
+								return modalError(error);
+							}
 
 							this.parentNode.parentNode.parentNode.close();
 						}
@@ -812,50 +817,50 @@ function exportData() {
 						}
 					}
 				}
-	    	}
-	    });
-    }
+			}
+		});
+	}
 }
 
 function importData() {
 	if (location.href.indexOf('action=import') !== -1) {
-        satus.render({
-	    	component: 'modal',
+		satus.render({
+			component: 'modal',
 
-	    	label: {
-	    		component: 'span',
-	    		text: 'areYouSureYouWantToImportTheData'
-	    	},
-	    	actions: {
-	    		component: 'section',
-	    		variant: 'actions',
+			label: {
+				component: 'span',
+				text: 'areYouSureYouWantToImportTheData'
+			},
+			actions: {
+				component: 'section',
+				variant: 'actions',
 
-	    		ok: {
+				ok: {
 					component: 'button',
 					text: 'ok',
 					on: {
 						click: function () {
 							var input = document.createElement('input');
 
-			                input.type = 'file';
+							input.type = 'file';
 
-			                input.addEventListener('change', function () {
-			                    var file_reader = new FileReader();
+							input.addEventListener('change', function () {
+								var file_reader = new FileReader();
 
-			                    file_reader.onload = function () {
-			                        var data = JSON.parse(this.result);
+								file_reader.onload = function () {
+									var data = JSON.parse(this.result);
 
-			                        for (var key in data) {
-			                            satus.storage.set(key, data[key]);
-			                        }
+									for (var key in data) {
+										satus.storage.set(key, data[key]);
+									}
 
-			                        close();
-			                    };
+									close();
+								};
 
-			                    file_reader.readAsText(this.files[0]);
-			                });
+								file_reader.readAsText(this.files[0]);
+							});
 
-			                input.click();
+							input.click();
 
 							this.parentNode.parentNode.parentNode.close();
 						}
@@ -870,9 +875,9 @@ function importData() {
 						}
 					}
 				}
-	    	}
-	    });
-    }
+			}
+		});
+	}
 }
 
 
@@ -882,7 +887,7 @@ function importData() {
 
 satus.storage.attributes = {
 	'hide-made-with-love': true,
-    'theme': true
+	'theme': true
 };
 
 satus.storage.import(function (items) {

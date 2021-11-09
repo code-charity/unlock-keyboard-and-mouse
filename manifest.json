@@ -2,7 +2,7 @@
     "manifest_version": 2,
     "name": "HID control prevention",
     "description": "__MSG_description_ext__",
-    "version": "1.3",
+    "version": "1.5",
     "default_locale": "en",
     "icons": {
         "16": "icons/16.png",
@@ -19,16 +19,18 @@
         "default_popup": "ui/popup.html"
     },
     "options_page": "ui/options.html",
-    "content_scripts": [{
-        "all_frames": true,
-        "js": [
-            "content-scripts.js"
-        ],
-        "matches": [
-            "<all_urls>"
-        ],
-        "run_at": "document_start"
-    }],
+    "content_scripts": [
+        {
+            "all_frames": true,
+            "js": [
+                "content-scripts.js"
+            ],
+            "matches": [
+                "<all_urls>"
+            ],
+            "run_at": "document_start"
+        }
+    ],
     "optional_permissions": [
         "downloads"
     ],
@@ -36,5 +38,5 @@
         "chrome://favicon/",
         "storage"
     ],
-   "content_security_policy": "script-src 'self'; object-src 'self'; img-src * data: chrome://favicon;"
+    "content_security_policy": "script-src 'self'; object-src 'self'; img-src * data: chrome://favicon;"
 }

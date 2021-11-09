@@ -5,6 +5,7 @@
 # Made with love
 --------------------------------------------------------------*/
 
+
 /*--------------------------------------------------------------
 # ...
 --------------------------------------------------------------*/
@@ -35,8 +36,8 @@ body[theme=black] {
 
 .satus-switch--domain {
     width: 100%;
-    margin: 8px 0 0;
     height: 48px;
+    margin: 8px 0 0;
     padding: 0 16px;
     transition: 150ms;
     color: var(--satus-switch--domain-color);
@@ -79,9 +80,9 @@ body[theme=black] {
     width: 100%;
     height: 72px;
     background: #fff;
+    box-shadow: 0 -4px 8px rgb(0, 0, 0, .15);
     justify-content: center;
     align-items: center;
-    box-shadow: 0 -4px 8px rgb(0,0,0,.15);
 }
 
 .satus-shortcut--create {
@@ -99,15 +100,15 @@ body[theme=black] {
 }
 
 .satus-section--row {
-    padding: 0 !important;
     position: relative;
     display: flex;
-    height: 48px;
     overflow: hidden;
+    height: 48px;
+    padding: 0 !important;
     transition: height .2s;
 }
 
-.satus-section--row > .satus-shortcut {
+.satus-section--row>.satus-shortcut {
     width: 100%;
 }
 
@@ -123,9 +124,12 @@ body[theme=black] {
     border-radius: 50%;
 }
 
-.satus-shortcut:hover + .satus-button--remove,
-.satus-button--remove:hover
-{
+.satus-shortcut > span:first-child {
+    display: none;
+}
+
+.satus-shortcut:hover+.satus-button--remove,
+.satus-button--remove:hover {
     visibility: visible;
 }
 
