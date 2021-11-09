@@ -1,12 +1,12 @@
 {
     "about": {
-        "message": "About"
+        "message": "Über"
     },
     "accept": {
-        "message": "Accept"
+        "message": "Akzeptieren"
     },
     "addNewFilter": {
-        "message": "Add new filter"
+        "message": "Neuen Filter hinzufügen"
     },
     "areYouSureYouWantToExportTheData": {
         "message": "Are you sure you want to export the data?"
@@ -15,10 +15,10 @@
         "message": "Are you sure you want to import the data?"
     },
     "audioFormats": {
-        "message": "Audio formats"
+        "message": "Audioformate"
     },
     "backupAndReset": {
-        "message": "Backup & reset"
+        "message": "Backup & zurücksetzen"
     },
     "black": {
         "message": "Black"
@@ -27,61 +27,61 @@
         "message": "Browser"
     },
     "cancel": {
-        "message": "Cancel"
+        "message": "Abbrechen"
     },
     "clipboard": {
-        "message": "Clipboard"
+        "message": "Zwischenablage"
     },
     "copy": {
-        "message": "Copy"
+        "message": "Kopieren"
     },
     "cores": {
-        "message": "Cores"
+        "message": "Kerne"
     },
     "current": {
-        "message": "Current"
+        "message": "Aktuell"
     },
     "cut": {
-        "message": "Cut"
+        "message": "Ausschneiden"
     },
     "dark": {
         "message": "Dark"
     },
     "dateAndTime": {
-        "message": "Date & time"
+        "message": "Datum & Zeit"
     },
     "description_ext": {
         "message": "Unblock Mouse Clicks, Selection, Drag & Drop, Cut, Copy, Paste and more..."
     },
     "device": {
-        "message": "Device"
+        "message": "Gerät"
     },
     "disabled": {
-        "message": "Disabled"
+        "message": "Deaktiviert"
     },
     "dragAndDrop": {
         "message": "Drag & Drop"
     },
     "empty": {
-        "message": "Empty"
+        "message": "Leer"
     },
     "export": {
         "message": "Export"
     },
     "exportSettings": {
-        "message": "Export settings"
+        "message": "Einstellungen exportieren"
     },
     "extension": {
-        "message": "Extension"
+        "message": "Erweiterung"
     },
     "filters": {
         "message": "Filters"
     },
     "flash": {
-        "message": "Flash"
+        "message": "Blitz"
     },
     "general": {
-        "message": "General"
+        "message": "Generell"
     },
     "global": {
         "message": "Global"
@@ -93,16 +93,16 @@
         "message": "Import"
     },
     "importSettings": {
-        "message": "Import settings"
+        "message": "Einstellungen importieren"
     },
     "invertColors": {
-        "message": "Invert colors"
+        "message": "Farben invertieren"
     },
     "language": {
-        "message": "Language"
+        "message": "Sprache"
     },
     "languages": {
-        "message": "Languages"
+        "message": "Sprachen"
     },
     "light": {
         "message": "Light"
@@ -111,90 +111,90 @@
         "message": "Name"
     },
     "notAllowedtoAccessThisPage": {
-        "message": "Not allowed to access this page."
+        "message": "Zugriff auf dieser Seite nicht erlaubt."
     },
     "ok": {
         "message": "OK"
     },
     "os": {
-        "message": "OS"
+        "message": "Betriebssystem"
     },
     "paste": {
-        "message": "Paste"
+        "message": "Einfügen"
     },
     "permissionIsNotGranted": {
-        "message": "Permission is not granted"
+        "message": "Berechtigung nicht erteilt"
     },
     "permissions": {
-        "message": "Permissions"
+        "message": "Berechtigungen"
     },
     "platform": {
-        "message": "Platform"
+        "message": "Plattform"
     },
     "ram": {
         "message": "RAM"
     },
     "rateUs": {
-        "message": "Rate us"
+        "message": "Bewerten"
     },
     "remove": {
-        "message": "Remove"
+        "message": "Entfernen"
     },
     "reset": {
         "message": "Reset"
     },
     "resetAllSettings": {
-        "message": "Reset all settings"
+        "message": "Alle Einstellungen zurücksetzen"
     },
     "resetSettings": {
-        "message": "Reset settings?"
+        "message": "Wirklich alle Einstellungen zurücksetzen?"
     },
     "save": {
         "message": "Save"
     },
     "saveAs": {
-        "message": "Save as..."
+        "message": "Speichern als..."
     },
     "select": {
-        "message": "Select"
+        "message": "Auswählen"
     },
     "settings": {
-        "message": "Settings"
+        "message": "Einstellungen"
     },
     "somethingWentWrongTryReloadingThePage": {
         "message": "Something went wrong. Try reloading the page."
     },
     "successfullyImportedSettings": {
-        "message": "Successfully imported settings"
+        "message": "Einstellungen erfolreich importiert"
     },
     "sunsetToSunrise": {
-        "message": "Sunset to sunrise"
+        "message": "Sonnenaufgang bis Sonnenuntergang"
     },
     "systemPeference": {
-        "message": "System preference"
+        "message": "Systemeinstellung"
     },
     "theListIsEmpty": {
-        "message": "The list is empty"
+        "message": "Die Liste ist leer"
     },
     "theme": {
         "message": "Theme"
     },
     "thisWillResetAllSettings": {
-        "message": "This will reset all settings"
+        "message": "Das wird alle Einstellungen zurücksetzen"
     },
     "type": {
-        "message": "Type"
+        "message": "Typ"
     },
     "use24HourFormat": {
-        "message": "Use 24-hour format"
+        "message": "24-Stunden Format verwenden"
     },
     "version": {
         "message": "Version"
     },
     "videoFormats": {
-        "message": "Video formats"
+        "message": "Videoformate"
     },
     "websites": {
-        "message": "Websites"
+        "message": "Websiten"
     }
 }
