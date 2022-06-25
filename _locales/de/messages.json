@@ -32,6 +32,9 @@
     "clipboard": {
         "message": "Zwischenablage"
     },
+    "contextMenu": {
+        "message": "Context menu"
+    },
     "copy": {
         "message": "Kopieren"
     },
@@ -40,6 +43,9 @@
     },
     "current": {
         "message": "Aktuell"
+    },
+    "custom": {
+        "message": "Custom"
     },
     "cut": {
         "message": "Ausschneiden"
@@ -50,7 +56,7 @@
     "dateAndTime": {
         "message": "Datum & Zeit"
     },
-    "description_ext": {
+    "description": {
         "message": "Unblock Mouse Clicks, Selection, Drag & Drop, Cut, Copy, Paste and more..."
     },
     "device": {
@@ -155,11 +161,17 @@
     "saveAs": {
         "message": "Speichern als..."
     },
+    "search": {
+        "message": "Search"
+    },
     "select": {
         "message": "Auswählen"
     },
     "settings": {
         "message": "Einstellungen"
+    },
+    "settingsPer": {
+        "message": "Settings per"
     },
     "somethingWentWrongTryReloadingThePage": {
         "message": "Something went wrong. Try reloading the page."
@@ -175,6 +187,9 @@
     },
     "theListIsEmpty": {
         "message": "Die Liste ist leer"
+    },
+    "thePageHOSTNAMEIsProtectedByBrowser": {
+        "message": "The page HOSTNAME is protected by browser."
     },
     "theme": {
         "message": "Theme"

@@ -11,10 +11,16 @@
     "cancel": {
         "message": "Отмена"
     },
+    "contextMenu": {
+        "message": "Context menu"
+    },
+    "custom": {
+        "message": "Custom"
+    },
     "dark": {
         "message": "Темная"
     },
-    "description_ext": {
+    "description": {
         "message": "Разблокируйте щелчки мыши, выделение, перетаскивание, вырезание, копирование, вставку и многое другое..."
     },
     "export": {
@@ -44,11 +50,20 @@
     "save": {
         "message": "Сохранить"
     },
+    "search": {
+        "message": "Search"
+    },
+    "settingsPer": {
+        "message": "Settings per"
+    },
     "software": {
         "message": "ПО"
     },
     "somethingWentWrongTryReloadingThePage": {
         "message": "Что-то пошло не так. Попробуйте перезагрузить страницу."
+    },
+    "thePageHOSTNAMEIsProtectedByBrowser": {
+        "message": "The page HOSTNAME is protected by browser."
     },
     "theme": {
         "message": "Тема"

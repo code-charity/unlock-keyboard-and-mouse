@@ -1,1 +1,17 @@
-{}
+{
+    "contextMenu": {
+        "message": "Context menu"
+    },
+    "custom": {
+        "message": "Custom"
+    },
+    "search": {
+        "message": "Search"
+    },
+    "settingsPer": {
+        "message": "Settings per"
+    },
+    "thePageHOSTNAMEIsProtectedByBrowser": {
+        "message": "The page HOSTNAME is protected by browser."
+    }
+}

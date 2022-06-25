@@ -5,9 +5,6 @@
     "accept": {
         "message": "Accept"
     },
-    "addNewFilter": {
-        "message": "Add new filter"
-    },
     "areYouSureYouWantToExportTheData": {
         "message": "Are you sure you want to export the data?"
     },
@@ -32,6 +29,9 @@
     "clipboard": {
         "message": "Clipboard"
     },
+    "contextMenu": {
+        "message": "Context menu"
+    },
     "copy": {
         "message": "Copy"
     },
@@ -40,6 +40,9 @@
     },
     "current": {
         "message": "Current"
+    },
+    "custom": {
+        "message": "Custom"
     },
     "cut": {
         "message": "Cut"
@@ -50,7 +53,7 @@
     "dateAndTime": {
         "message": "Date & time"
     },
-    "description_ext": {
+    "description": {
         "message": "Unblock Mouse Clicks, Selection, Drag & Drop, Cut, Copy, Paste and more..."
     },
     "device": {
@@ -155,11 +158,17 @@
     "saveAs": {
         "message": "Save as..."
     },
+    "search": {
+        "message": "Search"
+    },
     "select": {
         "message": "Select"
     },
     "settings": {
         "message": "Settings"
+    },
+    "settingsPer": {
+        "message": "Settings per"
     },
     "somethingWentWrongTryReloadingThePage": {
         "message": "Something went wrong. Try reloading the page."
@@ -175,6 +184,9 @@
     },
     "theListIsEmpty": {
         "message": "The list is empty"
+    },
+    "thePageHOSTNAMEIsProtectedByBrowser": {
+        "message": "The page HOSTNAME is protected by browser."
     },
     "theme": {
         "message": "Theme"

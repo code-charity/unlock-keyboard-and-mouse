@@ -1,5 +1,5 @@
 /*---------------------------------------------------------------
->>> HID control prevention
+>>> extension.hid control prevention
 -----------------------------------------------------------------
 # Global variable
 # Storage
@@ -19,11 +19,21 @@
 --------------------------------------------------------------*/
 
 var extension = {
-        hostname: location.hostname,
-        storage: {
-            data: {}
-        }
-    };
+	hostname: location.hostname,
+	storage: {
+		data: {},
+		website: {}
+	},
+	hid: {
+		alt: false,
+		ctrl: false,
+		shift: false,
+		keys: {},
+		wheel: 0,
+		click: false,
+		context: false
+	}
+};
 
 
 /*--------------------------------------------------------------
@@ -34,21 +44,23 @@ var extension = {
 # GET
 --------------------------------------------------------------*/
 
-extension.storage.get = function (name) {
-    return this.data[name];
-};
+extension.storage.get = function (key) {
+	var array = key.split('/'),
+		target = extension.storage.data;
 
+	for (var i = 0, l = array.length; i < l; i++) {
+		var j = array[i];
 
-/*--------------------------------------------------------------
-# SET
---------------------------------------------------------------*/
+		if (target[j] !== undefined) {
+			target = target[j];
 
-extension.storage.set = function (name, value) {
-    var object = {};
-
-    object[name] = value;
-
-    chrome.storage.local.set(object);
+			if (i + 1 === l) {
+				return target;
+			}
+		} else {
+			return undefined;
+		}
+	}
 };
 
 
@@ -57,145 +69,122 @@ extension.storage.set = function (name, value) {
 --------------------------------------------------------------*/
 
 extension.storage.import = function (callback) {
-    chrome.storage.local.get(function (items) {
-        for (var key in items) {
-            extension.storage.data[key] = items[key];
-        }
+	chrome.storage.local.get(function (items) {
+		for (var key in items) {
+			extension.storage.data[key] = items[key];
+		}
 
-        callback();
-    });
+		callback(items);
+	});
 };
-
-
-/*--------------------------------------------------------------
-# INITIALIZATION
---------------------------------------------------------------*/
-
-chrome.runtime.onMessage.addListener(function (message, sender, sendResponse) {
-    if (message.action === 'get-tab-hostname') {
-        if (window === window.top) {
-            sendResponse(extension.hostname);
-        }
-    }
-});
-
-chrome.runtime.sendMessage({
-    action: 'get-tab-hostname'
-}, function (response) {
-    extension.hostname = response.hostname;
-
-    extension.storage.import(function () {});
-});
 
 
 /*---------------------------------------------------------------
 1.0 FUNCTION
 ---------------------------------------------------------------*/
 
-var SETTINGS = {
-        enabled: true
-    },
-    HID = {
-        alt: false,
-        ctrl: false,
-        shift: false,
-        keys: {},
-        wheel: 0,
-        click: false,
-        context: false
-    };
-
 function isset(variable) {
-    if (typeof variable === 'undefined' || variable === null) {
-        return false;
-    }
+	if (typeof variable === 'undefined' || variable === null) {
+		return false;
+	}
 
-    return true;
+	return true;
 }
 
 function prevent(event) {
-    if (isset(SETTINGS.enabled) === false || SETTINGS.enabled === true) {
-        for (var key in SETTINGS.data) {
-            var item = SETTINGS.data[key],
-                same_keys = true;
+	if (isset(extension.storage.website.active) === false || extension.storage.website.active === true) {
+		for (var key in extension.storage.website.data) {
+			var item = extension.storage.website[key],
+				same_keys = true;
 
-            if (item && typeof item === 'object') {
-                if (HID.keys && item.keys) {
-                    for (var code in HID.keys) {
-                        if (!item.keys[code]) {
-                            same_keys = false;
-                        }
-                    }
+			if (item && typeof item === 'object') {
+				if (extension.hid.keys && item.keys) {
+					for (var code in extension.hid.keys) {
+						if (!item.keys[code]) {
+							same_keys = false;
+						}
+					}
 
-                    for (var code in item.keys) {
-                        if (!HID.keys[code]) {
-                            same_keys = false;
-                        }
-                    }
-                }
+					for (var code in item.keys) {
+						if (!extension.hid.keys[code]) {
+							same_keys = false;
+						}
+					}
+				}
 
-                if (
-                    same_keys === true &&
-                    (item.shift === HID.shift || isset(item.shift) === false) &&
-                    (item.ctrl === HID.ctrl || isset(item.ctrl) === false) &&
-                    (item.alt === HID.alt || isset(item.alt) === false) &&
-                    (item.click === HID.click || isset(item.click) === false) &&
-                    (item.context === HID.context || isset(item.context) === false) &&
-                    (item.wheel === HID.wheel || isset(item.wheel) === false)
-                ) {
-                    event.stopPropagation();
-                }
-            }
-        }
-    }
+				if (
+					same_keys === true &&
+					(item.shift === extension.hid.shift || isset(item.shift) === false) &&
+					(item.ctrl === extension.hid.ctrl || isset(item.ctrl) === false) &&
+					(item.alt === extension.hid.alt || isset(item.alt) === false) &&
+					(item.click === extension.hid.click || isset(item.click) === false) &&
+					(item.context === extension.hid.context || isset(item.context) === false) &&
+					(item.wheel === extension.hid.wheel || isset(item.wheel) === false)
+				) {
+					event.stopPropagation();
+				}
+			}
+		}
+	}
 }
 
 function hid_keyboard(event) {
-    HID = {
-        alt: false,
-        ctrl: false,
-        shift: false,
-        keys: {},
-        wheel: 0,
-        click: false,
-        context: false
-    };
+	if (event.code === 'AltLeft' || event.code === 'AltRight') {
+		extension.hid.alt = true;
+	} else if (event.code === 'ControlLeft' || event.code === 'ControlRight') {
+		extension.hid.ctrl = true;
+	} else if (event.code === 'ShiftLeft' || event.code === 'ShiftRight') {
+		extension.hid.shift = true;
+	} else {
+		extension.hid.keys[event.keyCode] = true;
+	}
 
-    if (event.code === 'AltLeft' || event.code === 'AltRight') {
-        HID.alt = true;
-    } else if (event.code === 'ControlLeft' || event.code === 'ControlRight') {
-        HID.ctrl = true;
-    } else if (event.code === 'ShiftLeft' || event.code === 'ShiftRight') {
-        HID.shift = true;
-    } else {
-        HID.keys[event.keyCode] = true;
-    }
+	if (isset(extension.storage.website.active) === false || extension.storage.website.active === true) {
+		console.log(extension.storage.website.search === true,
+			extension.hid.keys[70],
+			extension.hid.shift === false,
+			extension.hid.ctrl === true,
+			extension.hid.alt === false);
+		if (
+			extension.storage.website.search === true &&
+			extension.hid.keys[70] &&
+			extension.hid.shift === false &&
+			extension.hid.ctrl === true &&
+			extension.hid.alt === false
+		) {
+			console.log('aaa');
+			event.stopPropagation();
+		}
+	}
 }
 
-function update() {
-    chrome.storage.local.get(function (items) {
-        var host = extension.hostname || location.hostname;
 
-        SETTINGS.data = items.global || {};
+/*--------------------------------------------------------------
+# INITIALIZATION
+--------------------------------------------------------------*/
 
-        if (items.websites && items.websites[host]) {
-            SETTINGS.enabled = items.websites[host].enabled;
+chrome.runtime.sendMessage('tab-connected', function (response) {
+	extension.hostname = response;
 
-            if (items.websites[host].items) {
-                SETTINGS.data = Object.assign(SETTINGS.data, items.websites[host].items);
-            }
-        }
-    });
-}
+	extension.storage.import(function () {
+		if (extension.storage.get('websites/' + extension.hostname + '/separated') === true) {
+			extension.storage.website = extension.storage.get('websites/' + extension.hostname);
+		} else {
+			extension.storage.website = extension.storage.get('global');
+			extension.storage.website.active = extension.storage.get('websites/' + extension.hostname + '/active');
+		}
+	});
+});
 
-update();
-
-chrome.storage.onChanged.addListener(update);
-
-chrome.runtime.onMessage.addListener(function (request, sender, sendResponse) {
-    if (window.self === window.top && request === 'requestTabUrl') {
-        sendResponse(location.hostname);
-    }
+chrome.storage.onChanged.addListener(function () {
+	extension.storage.import(function () {
+		if (extension.storage.get('websites/' + extension.hostname + '/separated') === true) {
+			extension.storage.website = extension.storage.get('websites/' + extension.hostname);
+		} else {
+			extension.storage.website = extension.storage.get('global');
+			extension.storage.website.active = extension.storage.get('websites/' + extension.hostname + '/active');
+		}
+	});
 });
 
 
@@ -204,18 +193,28 @@ chrome.runtime.onMessage.addListener(function (request, sender, sendResponse) {
 ---------------------------------------------------------------*/
 
 window.addEventListener('keydown', function (event) {
-    hid_keyboard(event);
-    prevent(event);
+	hid_keyboard(event);
+	prevent(event);
 }, true);
 
 window.addEventListener('keypress', function (event) {
-    hid_keyboard(event);
-    prevent(event);
+	hid_keyboard(event);
+	prevent(event);
 }, true);
 
 window.addEventListener('keyup', function (event) {
-    hid_keyboard(event);
-    prevent(event);
+	hid_keyboard(event);
+	prevent(event);
+
+	extension.hid = {
+		alt: false,
+		ctrl: false,
+		shift: false,
+		keys: {},
+		wheel: 0,
+		click: false,
+		context: false
+	};
 }, true);
 
 
@@ -224,144 +223,171 @@ window.addEventListener('keyup', function (event) {
 ---------------------------------------------------------------*/
 
 window.addEventListener('click', function (event) {
-    HID.click = true;
-    HID.context = false;
-    HID.wheel = false;
+	extension.hid.click = true;
+	extension.hid.context = false;
+	extension.hid.wheel = false;
 
-    prevent(event);
+	prevent(event);
 
-    HID = {
-        alt: false,
-        ctrl: false,
-        shift: false,
-        keys: {},
-        wheel: 0,
-        click: false,
-        context: false
-    };
+	extension.hid = {
+		alt: false,
+		ctrl: false,
+		shift: false,
+		keys: {},
+		wheel: 0,
+		click: false,
+		context: false
+	};
 }, true);
 
 window.addEventListener('contextmenu', function (event) {
-    HID.click = false;
-    HID.context = true;
-    HID.wheel = false;
+	extension.hid.click = false;
+	extension.hid.context = true;
+	extension.hid.wheel = false;
 
-    prevent(event);
+	if (isset(extension.storage.website.active) === false || extension.storage.website.active === true) {
+		if (extension.storage.website.contextmenu === true) {
+			event.stopPropagation();
+		}
+	}
+
+	prevent(event);
 }, true);
 
 window.addEventListener('wheel', function (event) {
-    HID.click = false;
-    HID.context = false;
-    HID.wheel = event.deltaY < 0 ? -1 : 1;
+	extension.hid.click = false;
+	extension.hid.context = false;
+	extension.hid.wheel = event.deltaY < 0 ? -1 : 1;
 
-    prevent(event);
+	prevent(event);
 }, true);
 
 window.addEventListener('mousedown', function (event) {
-    HID.wheel = false;
+	extension.hid.wheel = false;
 
-    if (event.button === 0) {
-        HID.click = true;
-        HID.context = false;
-    } else if (event.button === 2) {
-        HID.click = false;
-        HID.context = true;
-    }
+	if (event.button === 0) {
+		extension.hid.click = true;
+		extension.hid.context = false;
+	} else if (event.button === 2) {
+		extension.hid.click = false;
+		extension.hid.context = true;
+	}
 
-    prevent(event);
+	prevent(event);
 }, true);
 
 window.addEventListener('mouseup', function (event) {
-    HID.wheel = false;
+	extension.hid.wheel = false;
 
-    if (event.button === 0) {
-        HID.click = true;
-        HID.context = false;
-    } else if (event.button === 2) {
-        HID.click = false;
-        HID.context = true;
-    }
+	if (event.button === 0) {
+		extension.hid.click = true;
+		extension.hid.context = false;
+	} else if (event.button === 2) {
+		extension.hid.click = false;
+		extension.hid.context = true;
+	}
 
-    prevent(event);
+	prevent(event);
 
-    if (event.button === 2) {
-        HID = {
-            alt: false,
-            ctrl: false,
-            shift: false,
-            keys: {},
-            wheel: 0,
-            click: false,
-            context: false
-        };
-    }
+	if (event.button === 2) {
+		extension.hid = {
+			alt: false,
+			ctrl: false,
+			shift: false,
+			keys: {},
+			wheel: 0,
+			click: false,
+			context: false
+		};
+	}
 }, true);
 
 window.addEventListener('cut', function (event) {
-    if (SETTINGS.data.cut !== false) {
-        event.stopPropagation();
-    }
+	if (isset(extension.storage.website.active) === false || extension.storage.website.active === true) {
+		if (extension.storage.website.cut === true) {
+			event.stopPropagation();
+		}
+	}
 }, true);
 
 window.addEventListener('copy', function (event) {
-    if (SETTINGS.data.copy !== false) {
-        console.log('COPY', event);
-        event.stopPropagation();
-    }
+	if (isset(extension.storage.website.active) === false || extension.storage.website.active === true) {
+		if (extension.storage.website.copy === true) {
+			event.stopPropagation();
+		}
+	}
 }, true);
 
 window.addEventListener('paste', function (event) {
-    if (SETTINGS.data.paste !== false) {
-        event.stopPropagation();
-    }
+	if (isset(extension.storage.website.active) === false || extension.storage.website.active === true) {
+		if (extension.storage.website.paste === true) {
+			event.stopPropagation();
+		}
+	}
 }, true);
 
 window.addEventListener('select', function (event) {
-    if (SETTINGS.data.select !== false) {
-        event.stopPropagation();
-    }
+	if (isset(extension.storage.website.active) === false || extension.storage.website.active === true) {
+		if (extension.storage.website.select === true) {
+			event.stopPropagation();
+		}
+	}
 }, true);
 
 window.addEventListener('drag', function (event) {
-    if (SETTINGS.data.drag_and_drop === true) {
-        event.stopPropagation();
-    }
+	if (isset(extension.storage.website.active) === false || extension.storage.website.active === true) {
+		if (extension.storage.website.drag_and_drop === true) {
+			event.stopPropagation();
+		}
+	}
 }, true);
 
 window.addEventListener('dragend', function (event) {
-    if (SETTINGS.data.drag_and_drop === true) {
-        event.stopPropagation();
-    }
+	if (isset(extension.storage.website.active) === false || extension.storage.website.active === true) {
+		if (extension.storage.website.drag_and_drop === true) {
+			event.stopPropagation();
+		}
+	}
 }, true);
 
 window.addEventListener('dragenter', function (event) {
-    if (SETTINGS.data.drag_and_drop === true) {
-        event.stopPropagation();
-    }
+	if (isset(extension.storage.website.active) === false || extension.storage.website.active === true) {
+		if (extension.storage.website.drag_and_drop === true) {
+			event.stopPropagation();
+		}
+	}
 }, true);
 
 window.addEventListener('dragstart', function (event) {
-    if (SETTINGS.data.drag_and_drop === true) {
-        event.stopPropagation();
-    }
+	if (isset(extension.storage.website.active) === false || extension.storage.website.active === true) {
+		if (extension.storage.website.drag_and_drop === true) {
+			event.stopPropagation();
+		}
+	}
 }, true);
 
 window.addEventListener('dragleave', function (event) {
-    if (SETTINGS.data.drag_and_drop === true) {
-        event.stopPropagation();
-    }
+	if (isset(extension.storage.website.active) === false || extension.storage.website.active === true) {
+		if (extension.storage.website.drag_and_drop === true) {
+			event.stopPropagation();
+		}
+	}
 }, true);
 
 window.addEventListener('dragover', function (event) {
-    if (SETTINGS.data.drag_and_drop === true) {
-        event.stopPropagation();
-    }
+	if (isset(extension.storage.website.active) === false || extension.storage.website.active === true) {
+		if (extension.storage.website.drag_and_drop === true) {
+			event.stopPropagation();
+		}
+	}
 }, true);
 
 window.addEventListener('drop', function (event) {
-    if (SETTINGS.data.drag_and_drop === true) {
-        event.stopPropagation();
-    }
+	if (isset(extension.storage.website.active) === false || extension.storage.website.active === true) {
+		if (extension.storage.website.drag_and_drop === true) {
+			event.stopPropagation();
+		}
+	}
 }, true);
 
 /*window.addEventListener('dbclick', prevent, true);
