@@ -11,7 +11,12 @@
 --------------------------------------------------------------*/
 
 extension.skeleton = {
-	component: 'base'
+	component: 'base',
+	attr: {
+		theme: function () {
+			return satus.storage.get('theme') || 'light';
+		}
+	}
 };
 
 
@@ -76,6 +81,13 @@ extension.skeleton.header = {
 						style: {
 							height: 'auto',
 							margin: '0 0 12px'
+						},
+						on: {
+							render: function () {
+								if (extension.hostname.length === 0) {
+									this.style.display = 'none';
+								}
+							}
 						}
 					},
 					separate: {
@@ -100,11 +112,23 @@ extension.skeleton.header = {
 								satus.empty(extension.skeleton.main.layers.section.rendered);
 
 								satus.render(extension.skeleton.main.layers.rendered.path[0].section, extension.skeleton.main.layers.section.rendered, undefined, true);
+							},
+							render: function () {
+								if (extension.hostname.length === 0) {
+									this.style.display = 'none';
+								}
 							}
 						}
 					},
 					divider: {
-						component: 'divider'
+						component: 'divider',
+						on: {
+							render: function () {
+								if (extension.hostname.length === 0) {
+									this.style.display = 'none';
+								}
+							}
+						}
 					},
 					theme: {
 						component: 'select',
@@ -126,9 +150,9 @@ extension.skeleton.header = {
 						on: {
 							change: function () {
 								if (this.storage.value === 'dark') {
-									document.body.setAttribute('theme', 'dark');
+									extension.skeleton.rendered.setAttribute('theme', 'dark');
 								} else {
-									document.body.removeAttribute('theme');
+									extension.skeleton.rendered.removeAttribute('theme');
 								}
 							}
 						},

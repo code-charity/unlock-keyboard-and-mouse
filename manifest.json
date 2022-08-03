@@ -2,7 +2,7 @@
 	"manifest_version": 3,
 	"name": "Unlock Keyboard & Mouse",
 	"description": "__MSG_description__",
-	"version": "2.0",
+	"version": "2.1",
 	"default_locale": "en",
 	"icons": {
 		"16": "assets/icons/16.png",

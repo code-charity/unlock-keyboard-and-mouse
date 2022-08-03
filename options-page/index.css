@@ -1,10 +1,28 @@
 /*--------------------------------------------------------------
 >>> OPTIONS PAGE
 ----------------------------------------------------------------
+# Body
 # Fonts
 # Themes
 # Alert
 --------------------------------------------------------------*/
+
+/*--------------------------------------------------------------
+# BODY
+--------------------------------------------------------------*/
+
+body {
+	font-family: Roboto, sans-serif;
+	font-size: 14px;
+	margin: 0;
+	overflow: hidden
+}
+
+body[tab] {
+	width: 100vw;
+	height: 100vh
+}
+
 
 /*--------------------------------------------------------------
 # FONTS
@@ -35,9 +53,12 @@
 # THEMES
 --------------------------------------------------------------*/
 
-body {
+.satus-base {
 	--satus-light: 0, 0, 0;
 	--satus-primary: #f6b465;
+	--satus-alert-background--error: #f2cfcf;
+	--satus-alert-border--error: 1px solid #e58a8a;
+	--satus-alert-foreground--error: #d74747;
 	--satus-header-background: #fff;
 	--satus-header-shadow: 0 0 3px rgba(var(--satus-light), .1), inset 0 -1px 0 rgba(var(--satus-light), .1);
 	--satus-header-foreground: #848471;
@@ -52,7 +73,7 @@ body {
 	--satus-tabs-foreground: #fff;
 }
 
-body[theme='dark'] {
+.satus-base[theme='dark'] {
 	--satus-light: 255, 255, 255;
 	--satus-primary: #8f8f8f;
 	--satus-base-background: #000;

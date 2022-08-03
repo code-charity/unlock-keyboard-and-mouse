@@ -93,7 +93,7 @@ function isset(variable) {
 
 function prevent(event) {
 	if (isset(extension.storage.website.active) === false || extension.storage.website.active === true) {
-		for (var key in extension.storage.website.data) {
+		for (var key in extension.storage.website) {
 			var item = extension.storage.website[key],
 				same_keys = true;
 
@@ -140,11 +140,6 @@ function hid_keyboard(event) {
 	}
 
 	if (isset(extension.storage.website.active) === false || extension.storage.website.active === true) {
-		console.log(extension.storage.website.search === true,
-			extension.hid.keys[70],
-			extension.hid.shift === false,
-			extension.hid.ctrl === true,
-			extension.hid.alt === false);
 		if (
 			extension.storage.website.search === true &&
 			extension.hid.keys[70] &&
@@ -152,7 +147,6 @@ function hid_keyboard(event) {
 			extension.hid.ctrl === true &&
 			extension.hid.alt === false
 		) {
-			console.log('aaa');
 			event.stopPropagation();
 		}
 	}
@@ -174,6 +168,16 @@ chrome.runtime.sendMessage('tab-connected', function (response) {
 			extension.storage.website.active = extension.storage.get('websites/' + extension.hostname + '/active');
 		}
 	});
+});
+
+chrome.runtime.onMessage.addListener(function (message, sender, sendResponse) {
+	var action = message.action;
+
+	if (action === 'options-page-connected') {
+		if (window === window.top) {
+			sendResponse(extension.hostname);
+		}
+	}
 });
 
 chrome.storage.onChanged.addListener(function () {
