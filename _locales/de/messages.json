@@ -9,10 +9,10 @@
         "message": "Neuen Filter hinzufügen"
     },
     "areYouSureYouWantToExportTheData": {
-        "message": "Are you sure you want to export the data?"
+        "message": "Sind Sie sicher, dass Sie die Daten exportieren möchten?"
     },
     "areYouSureYouWantToImportTheData": {
-        "message": "Are you sure you want to import the data?"
+        "message": "Sind Sie sicher, dass Sie die Daten importieren möchten?"
     },
     "audioFormats": {
         "message": "Audioformate"
@@ -21,7 +21,7 @@
         "message": "Backup & zurücksetzen"
     },
     "black": {
-        "message": "Black"
+        "message": "Schwarz"
     },
     "browser": {
         "message": "Browser"
@@ -33,7 +33,7 @@
         "message": "Zwischenablage"
     },
     "contextMenu": {
-        "message": "Context menu"
+        "message": "Kontextmenü"
     },
     "copy": {
         "message": "Kopieren"
@@ -45,19 +45,19 @@
         "message": "Aktuell"
     },
     "custom": {
-        "message": "Custom"
+        "message": "Angepasst"
     },
     "cut": {
         "message": "Ausschneiden"
     },
     "dark": {
-        "message": "Dark"
+        "message": "Dunkel"
     },
     "dateAndTime": {
         "message": "Datum & Zeit"
     },
     "description": {
-        "message": "Unblock Mouse Clicks, Selection, Drag & Drop, Cut, Copy, Paste and more..."
+        "message": "Entsperren Sie Mausklicks, Auswahl, Drag & Drop, Ausschneiden, Kopieren, Einfügen und mehr..."
     },
     "device": {
         "message": "Gerät"
@@ -111,7 +111,7 @@
         "message": "Sprachen"
     },
     "light": {
-        "message": "Light"
+        "message": "Hell"
     },
     "name": {
         "message": "Name"
@@ -147,7 +147,7 @@
         "message": "Entfernen"
     },
     "reset": {
-        "message": "Reset"
+        "message": "Zurücksetzen"
     },
     "resetAllSettings": {
         "message": "Alle Einstellungen zurücksetzen"
@@ -156,13 +156,13 @@
         "message": "Wirklich alle Einstellungen zurücksetzen?"
     },
     "save": {
-        "message": "Save"
+        "message": "Speichern"
     },
     "saveAs": {
         "message": "Speichern als..."
     },
     "search": {
-        "message": "Search"
+        "message": "Suche"
     },
     "select": {
         "message": "Auswählen"
@@ -171,10 +171,10 @@
         "message": "Einstellungen"
     },
     "settingsPer": {
-        "message": "Settings per"
+        "message": "Einstellungen pro"
     },
     "somethingWentWrongTryReloadingThePage": {
-        "message": "Something went wrong. Try reloading the page."
+        "message": "Irgendetwas ist schief gelaufen. Versuchen Sie, die Seite neu zu laden."
     },
     "successfullyImportedSettings": {
         "message": "Einstellungen erfolreich importiert"
@@ -189,7 +189,7 @@
         "message": "Die Liste ist leer"
     },
     "thePageHOSTNAMEIsProtectedByBrowser": {
-        "message": "The page HOSTNAME is protected by browser."
+        "message": "Die seite HOSTNAME ist geschüzt vom browser."
     },
     "theme": {
         "message": "Theme"
